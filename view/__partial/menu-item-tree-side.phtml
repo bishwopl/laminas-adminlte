@@ -1,0 +1,50 @@
+<?php
+use LaminasAdminLTE\ThemeOptions\PartialOption;
+/**
+ * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
+ */
+/* @var $page \Laminas\Navigation\Page\AbstractPage */
+$page = $this->page;
+$maxDepth = $this->maxDepth;
+$class = $this->class;
+$linkClass = '';
+$labelClean = str_replace(' ', '_', $page->getLabel());
+$icon = $page->showIcon == true ? $page->icon : false;
+$childPagesCheck = $page->getPages();
+foreach ($childPagesCheck as $cPage) {
+    if($cPage->isActive()){
+        $class .= ' menu-open active';
+        $linkClass = 'active';
+    }
+}
+?>
+<li class="<?= $class ?>">
+    <a href="#" class="nav-link <?= $linkClass ?>">
+        <?= $icon!== false ? '<i class="'. $icon .'"></i>' : '' ?>
+        <p><?= $page->getLabel() ?></p>
+    </a>
+    <ul class="nav nav-treeview">
+        <?php
+        $childPages = $page->getPages();
+        foreach ($childPages as $cPage) {
+            $iconCpage = $cPage->showIcon == true ? $cPage->icon : false;
+            if ($cPage->hasPages() && --$maxDepth > 0) {
+                echo $this->partial(PartialOption::$menuItemTree, [
+                    'page' => $cPage,
+                    'maxDepth' => $maxDepth,
+                    'class' => 'dropdown-submenu dropdown-hover'
+                ]);
+            } else {
+                ?>
+                <li class="nav-item">
+                    <a href="<?= $cPage->getHref() ?>" class="nav-link <?= $cPage->isActive() ? 'active' : '' ?>">
+                        <?= $iconCpage!== false ? '<i class="'. $iconCpage .'"></i>' : '' ?>
+                        <p><?= $cPage->getLabel() ?></p>
+                    </a>
+                </li>
+                <?php
+            }
+        }
+        ?>
+    </ul>
+</li>

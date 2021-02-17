@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
+ */
+
+/* @var $page \Laminas\Navigation\Page\AbstractPage */
+$page = $this->page;
+$icon = $page->showIcon == true ? $page->icon : false;
+?>
+<li class="nav-item">
+    <a href="<?= $page->getHref() ?>" class="nav-link <?= $page->isActive()?'active':'' ?>">
+        <?= $icon!== false ? '<i class="'. $icon .'"></i>' : '' ?>
+        <?= $page->getLabel() ?>
+    </a>
+</li>

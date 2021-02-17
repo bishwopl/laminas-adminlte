@@ -1,0 +1,30 @@
+<?php
+use LaminasAdminLTE\ThemeOptions\PartialOption;
+/**
+ * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
+ */
+/* @var $container Laminas\Navigation\Navigation */
+$container = $this->container;
+$maxDepth = $this->navigation($container)->menu()->getMaxDepth();
+?>
+<ul class="<?= $this->navigation($container)->menu()->getUlClass(); ?>"  data-widget="treeview" role="menu" data-accordion="false">
+    <?php
+    foreach ($container as $page) {
+        if (!$this->navigation()->accept($page)) {
+            continue;
+        }
+        $isActive = $page->isActive();
+        $hasChildren = $page->hasPages();
+        if ($hasChildren) {
+            echo $this->partial(PartialOption::$menuItemTreeSide, [
+                'page' => $page,
+                'maxDepth' => $maxDepth,
+                'class' => 'nav-item dropdown',
+                'menuLocation' => 'side'
+            ]);
+        } else {
+            echo $this->partial(PartialOption::$menuItemSide, ['page' => $page]);
+        }
+    }
+    ?>
+</ul>
