@@ -1,0 +1,76 @@
+
+<?php
+    'laminas_adminlte' => [
+        'favicon'              => 'img/favicon.ico', //url relative to basepth
+        'brandLogo'            => 'dist/img/AdminLTELogo.png', //url relative to basepth
+        'brandNameF'           => 'AdminLTE3 - Laminas MVC Framework Integration',
+        'brandNameS'           => 'Laminas-AdminLTE3',
+        'showControl'          => true,
+        'showSearch'           => true,
+        'showBreadcrumb'       => false,
+        'layout'               => LayoutOption::$topNavigation,
+        'topNavigationKey'     => 'default',
+        'sidebarNavigationKey' => 'default',
+        'plugins'              => require __DIR__.'/plugins.config.php',
+        'meta'                 => [ //generates <meta {type} = {key} content = {content}>
+            [
+                'type'    => 'name',
+                'key'     => 'Content-Type',
+                'content' => 'text/html; charset=UTF-8'
+            ],
+            [
+                'type'    => 'http-equiv',
+                'key'     => 'viewport',
+                'content' => 'width=device-width, initial-scale=1.0'
+            ],
+            [
+                'type'    => 'http-equiv',
+                'key'     => 'X-UA-Compatible',
+                'content' => 'IE=edge'
+            ],
+        ],
+        'theme_assets' => [
+            'files' => [
+                [
+                    'type'      => 'css',
+                    'isFromCDN' => false,
+                    'location'  => 'plugins/fontawesome-free/css/all.min.css'
+                ],
+                [
+                    'type'      => 'css',
+                    'isFromCDN' => false,
+                    'location'  => 'dist/css/adminlte.min.css'
+                ],
+                [
+                    'type'      => 'js',
+                    'isFromCDN' => false,
+                    'location'  => 'plugins/jquery/jquery.min.js'
+                ],
+                [
+                    'type'      => 'js',
+                    'isFromCDN' => false,
+                    'location'  => 'plugins/bootstrap/js/bootstrap.min.js'
+                ],
+                [
+                    'type'      => 'js',
+                    'isFromCDN' => false,
+                    'location'  => 'dist/js/adminlte.min.js'
+                ],
+                [
+                    'type'      => 'js',
+                    'isFromCDN' => false,
+                    'location'  => 'js/app.js'
+                ],
+            ],
+        ],
+        'layout_plugins' => [ //plugins required for a specific layout
+            LayoutOption::$fixedSidebar => [
+                PluginOption::$overlayScrollbars,
+                PluginOption::$datatables,
+            ],
+            LayoutOption::$topNavigation => [
+                PluginOption::$overlayScrollbars,
+                PluginOption::$datatables,
+            ],
+        ],
+    ],
