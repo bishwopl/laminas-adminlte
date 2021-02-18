@@ -25,8 +25,6 @@ return [
         ],
     ],
     'laminas_adminlte' => [
-        'compressOutput'       => true,
-        'compressionLevel'     => 9, //can be 0 to 9, 9 for maximum compression
         'favicon'              => 'img/favicon.ico', //url relative to basepth
         'brandLogo'            => 'dist/img/AdminLTELogo.png', //url relative to basepth
         'brandNameF'           => 'AdminLTE3 - Laminas MVC Framework Integration',
