@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": "^7.4",
-        "laminas/laminas-navigation": "^2.12",
+        "laminas/laminas-navigation": "^2.10",
         "laminas/laminas-mvc": "^3.1",
         "rwoverdijk/assetmanager": "^3.0",
         "almasaeed2010/adminlte": "^3.0"
