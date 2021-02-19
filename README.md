@@ -25,3 +25,4 @@ return [
 ];
 ```
 # Configuration
+Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.local.php
