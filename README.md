@@ -131,3 +131,5 @@ Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.
         ],
     ],
 ```
+# To do 
+* Add User registration, login and profile templates
