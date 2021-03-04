@@ -48,13 +48,13 @@ return [
          * This module uses laminas/laminas-navigation to generate top and sidebar menu.
          * 'topNavigationKey' is used select navigation for top bar
          */
-        'topNavigationKey' => 'default',
+        'topNavigationKey' => 'laminas-adminlte-examples-navigation',
         
         /**
          * This module uses laminas/laminas-navigation to generate top menu and sidebar menu.
          * 'sidebarNavigationKey' is used select navigation for side bar menu
          */
-        'sidebarNavigationKey' => 'default',
+        'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
         
         /**
          * List of plugins. To add new plugins use the following format
