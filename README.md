@@ -86,7 +86,8 @@ Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.
          *       'files' => [
          *           [
          *               'type' => 'js',
-         *               'isFromCDN' => false, //if set true location is treated as URL ie src = 'location', if not src = '$this->basePath('location')' is used;
+         *               'isFromCDN' => false, //if set true location is treated as URL ie src = 'location',
+         *                                     //if not src = '$this->basePath('location')' is used;
          *               'location' => 'plugins/myscript.js',
          *           ],
          *           [
