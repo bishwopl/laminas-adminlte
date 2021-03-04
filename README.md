@@ -121,7 +121,7 @@ Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.
          * If your custom layout requires a specific plugin then you can either
          * enable the plugin after changing layout or
          * use this option. This method is useful if layout is changed by the 
-         * application during execution such as different layout for different use roles
+         * application during execution such as different layout for different user roles
          */
         'layout_plugins' => [//plugins required for a specific layout
             LayoutOption::$fixedSidebar => [
