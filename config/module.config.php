@@ -10,6 +10,8 @@ use LaminasAdminLTE\ModuleOptions\ModuleOptionsFactory;
 use LaminasAdminLTE\ThemeOptions\LayoutOption;
 use LaminasAdminLTE\ThemeOptions\PluginOption;
 use LaminasAdminLTE\ThemeOptions\PartialOption;
+use LaminasAdminLTE\Service\CustomNavigation;
+use LaminasAdminLTE\Service\CustomNavigationFactory;
 
 $aLTEDirAssets = __DIR__ . '/../../../almasaeed2010/adminlte';
 
@@ -22,9 +24,15 @@ return [
     'service_manager' => [
         'factories' => [
             ModuleOptions::class => ModuleOptionsFactory::class,
+            CustomNavigation::class => CustomNavigationFactory::class
+        ],
+        'aliases' => [
+            'laminas-adminlte-examples-navigation' => CustomNavigation::class,
         ],
     ],
     'laminas_adminlte' => [
+        //'compressOutput'       => true,
+        //'compressionLevel'     => 2,
         'favicon'              => 'img/favicon.ico', //url relative to basepth
         'brandLogo'            => 'dist/img/AdminLTELogo.png', //url relative to basepth
         'brandNameF'           => 'AdminLTE3 - Laminas MVC Framework Integration',
@@ -33,8 +41,8 @@ return [
         'showSearch'           => true,
         'showBreadcrumb'       => false,
         'layout'               => LayoutOption::$topNavigation,
-        'topNavigationKey'     => 'default',
-        'sidebarNavigationKey' => 'default',
+        'topNavigationKey'     => 'laminas-adminlte-examples-navigation',
+        'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
         'plugins'              => require __DIR__.'/plugins.config.php',
         'meta'                 => [ //generates <meta {type} = {key} content = {content}>
             [
@@ -158,6 +166,9 @@ return [
     ],
     'navigation' => [
         'default' => [
+            
+        ],
+        'laminas-adminlte-examples-navigation' => [
             [
                 'label' => 'Home',
                 'route' => 'home',
