@@ -1,5 +1,6 @@
 <?php
-
+use LaminasAdminLTE\ThemeOptions\LayoutOption;
+use LaminasAdminLTE\ThemeOptions\PluginOption;
 return [
     'laminas_adminlte' => [
         /**
