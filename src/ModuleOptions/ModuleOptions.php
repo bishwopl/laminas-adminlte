@@ -75,7 +75,7 @@ class ModuleOptions extends Config implements ModuleOptionsInterface {
         }
 
         foreach ($plugins as $pluginName => $p) {
-            if ($p->isActive == true || in_array($pluginName, $layoutPlugins)) {
+            if ($p->active == true || in_array($pluginName, $layoutPlugins)) {
                 foreach ($p->files as $file) {
                     if ($file->type == 'js') {
                         $this->jsAssetList[] = $file;
