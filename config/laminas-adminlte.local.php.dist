@@ -65,6 +65,7 @@ return [
          *           [
          *               'type' => 'js',
          *               'isFromCDN' => false, //if set true location is treated as URL ie src = 'location', if not src = '$this->basePath('location')' is used;
+         *               'isInlineScript' => true, //if true includes script at the last, else put script in <head>
          *               'location' => 'plugins/myscript.js',
          *           ],
          *           [
