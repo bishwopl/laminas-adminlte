@@ -74,24 +74,28 @@ return [
                     'location'  => 'dist/css/adminlte.min.css'
                 ],
                 [
-                    'type'      => 'js',
-                    'isFromCDN' => false,
-                    'location'  => 'plugins/jquery/jquery.min.js'
+                    'type'           => 'js',
+                    'isFromCDN'      => false,
+                    'isInlineScript' => false,
+                    'location'       => 'plugins/jquery/jquery.min.js'
                 ],
                 [
-                    'type'      => 'js',
-                    'isFromCDN' => false,
-                    'location'  => 'plugins/bootstrap/js/bootstrap.min.js'
+                    'type'           => 'js',
+                    'isFromCDN'      => false,
+                    'isInlineScript' => false,
+                    'location'       => 'plugins/bootstrap/js/bootstrap.min.js'
                 ],
                 [
-                    'type'      => 'js',
-                    'isFromCDN' => false,
-                    'location'  => 'dist/js/adminlte.min.js'
+                    'type'           => 'js',
+                    'isFromCDN'      => false,
+                    'isInlineScript' => false,
+                    'location'       => 'dist/js/adminlte.min.js'
                 ],
                 [
-                    'type'      => 'js',
-                    'isFromCDN' => false,
-                    'location'  => 'js/app.js'
+                    'type'           => 'js',
+                    'isFromCDN'      => false,
+                    'isInlineScript' => true,
+                    'location'       => 'js/app.js'
                 ],
             ],
         ],
