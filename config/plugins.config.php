@@ -12,6 +12,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js',
             ],
             [
@@ -27,6 +28,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/bootstrap-slider/bootstrap-slider.min.js',
             ],
             [
@@ -42,6 +44,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/bootstrap-switch/js/bootstrap-switch.min.js',
             ],
             [
@@ -57,6 +60,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js',
             ],
             [
@@ -73,6 +77,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/bs-custom-file-input/bs-custom-file-input.min.js',
             ],
         ],
@@ -83,6 +88,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/chart.js/Chart.bundle.min.js',
             ],
             [
@@ -98,11 +104,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => true,
+                'isInlineScript' => true,
                 'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => true,
+                'isInlineScript' => true,
                 'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
             ],
             [
@@ -118,6 +126,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-autofill/js/dataTables.autoFill.min.js',
             ],
             [
@@ -133,6 +142,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-bs4/js/dataTables.bootstrap4.min.js',
             ],
             [
@@ -148,26 +158,31 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-buttons/js/buttons.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-buttons/js/buttons.colVis.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-buttons/js/buttons.html5.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-buttons/js/buttons.print.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-buttons/js/dataTables.buttons.min.js',
             ],
             [
@@ -183,11 +198,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-colreorder/js/colReorder.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-colreorder/js/dataTables.colReorder.min.js',
             ],
             [
@@ -203,11 +220,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-fixedcolumns/js/fixedColumns.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-fixedcolumns/js/dataTables.fixedColumns.min.js',
             ],
             [
@@ -223,11 +242,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-fixedheader/js/dataTables.fixedHeader.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-fixedheader/js/fixedHeader.bootstrap4.min.js',
             ],
             [
@@ -243,11 +264,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-keytable/js/keyTable.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-keytable/js/dataTables.keyTable.min.js',
             ],
             [
@@ -263,11 +286,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-responsive/js/dataTables.responsive.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-responsive/js/responsive.bootstrap4.min.js',
             ],
             [
@@ -283,11 +308,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-rowgroup/js/rowGroup.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-rowgroup/js/dataTables.rowGroup.min.js',
             ],
             [
@@ -303,11 +330,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-rowreorder/js/rowReorder.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-rowreorder/js/dataTables.rowReorder.min.js',
             ],
             [
@@ -323,11 +352,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-scroller/js/scroller.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-scroller/js/dataTables.scroller.min.js',
             ],
             [
@@ -343,11 +374,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-select/js/select.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/datatables-select/js/dataTables.select.min.js',
             ],
             [
@@ -363,6 +396,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/daterangepicker/daterangepicker.js',
             ],
             [
@@ -378,6 +412,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/ekko-lightbox/ekko-lightbox.min.js',
             ],
             [
@@ -393,6 +428,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/fastclick/fastclick.js',
             ],
         ],
@@ -403,6 +439,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/filterizr/vanilla.filterizr.min.js',
             ],
         ],
@@ -423,6 +460,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/flot/jquery.flot.js',
             ],
         ],
@@ -433,6 +471,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/flot-old/jquery.flot.min.js',
             ],
         ],
@@ -453,6 +492,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/fullcalendar/main.min.js',
             ],
             [
@@ -468,6 +508,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/fullcalendar-bootstrap/main.min.js',
             ],
             [
@@ -483,6 +524,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/fullcalendar-daygrid/main.min.js',
             ],
             [
@@ -498,6 +540,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/fullcalendar-interaction/main.min.js',
             ],
         ],
@@ -508,6 +551,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/fullcalendar-timegrid/main.min.js',
             ],
             [
@@ -533,6 +577,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/inputmask/jquery.inputmask.bundle.js',
             ],
         ],
@@ -543,6 +588,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/ion-rangeslider/js/ion.rangeSlider.min.js',
             ],
             [
@@ -558,6 +604,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => false,
                 'location' => 'plugins/jquery/jquery.min.js',
             ],
         ],
@@ -568,6 +615,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jquery/jquery.slim.min.js',
             ],
         ],
@@ -578,6 +626,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jquery-knob/jquery.knob.min.js',
             ],
         ],
@@ -588,6 +637,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jquery-mapael/jquery.mapael.min.js',
             ],
         ],
@@ -598,6 +648,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jquery-mousewheel/jquery.mousewheel.js',
             ],
         ],
@@ -608,6 +659,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => false,
                 'location' => 'plugins/jquery-ui/jquery-ui.min.js',
             ],
             [
@@ -628,11 +680,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jquery-validation/jquery.validate.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jquery-validation/additional-methods.min.js',
             ],
         ],
@@ -643,6 +697,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jqvmap/jquery.vmap.min.js',
             ],
             [
@@ -658,6 +713,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jsgrid/jsgrid.min.js',
             ],
             [
@@ -678,6 +734,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/jszip/jszip.min.js',
             ],
         ],
@@ -688,6 +745,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/moment/moment.min.js',
             ],
         ],
@@ -703,6 +761,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
             ],
         ],
@@ -713,6 +772,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/pace-progress/pace.min.js',
             ],
         ],
@@ -723,6 +783,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/pdfmake/pdfmake.min.js',
             ],
         ],
@@ -733,11 +794,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/popper/popper.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/popper/popper-utils.min.js',
             ],
         ],
@@ -748,6 +811,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/raphael/raphael.min.js',
             ],
         ],
@@ -758,6 +822,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/select2/js/select2.full.min.js',
             ],
             [
@@ -783,6 +848,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/sparklines/sparkline.js',
             ],
         ],
@@ -793,6 +859,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/summernote/summernote-bs4.min.js',
             ],
             [
@@ -808,6 +875,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/sweetalert2/sweetalert2.all.min.js',
             ],
             [
@@ -833,6 +901,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
             ],
             [
@@ -848,6 +917,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
+                'isInlineScript' => true,
                 'location' => 'plugins/toastr/toastr.min.js',
             ],
             [
