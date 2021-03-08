@@ -1,10 +1,12 @@
 <?php
 
 namespace LaminasAdminLTE\ThemeOptions;
+
 /**
  * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
  */
-class CustomizeOption{
+class CustomizeOption {
+
     public static $noNavBarBorder = '';
     public static $bodySmallText = '';
     public static $navbarSmallText = '';
@@ -16,4 +18,5 @@ class CustomizeOption{
     public static $sidebarNavChildIndent = '';
     public static $mainSidebarDisableAutoExpand = '';
     public static $brandSmallText = '';
+
 }
