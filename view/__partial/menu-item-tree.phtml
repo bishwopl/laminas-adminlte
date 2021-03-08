@@ -20,7 +20,7 @@ foreach ($childPagesCheck as $cPage) {
 ?>
 <li class="<?= $class ?>">
     <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle <?= $linkClass ?>">
-        <?= $icon!== false ? '<i class="'. $icon .'"></i>' : '' ?>
+        <?= $icon!== false ? '<i class="nav-icon '. $icon .'"></i>' : '' ?>
         <?= $page->getLabel() ?>
     </a>
     <ul class="dropdown-menu border-0 shadow">
@@ -38,7 +38,7 @@ foreach ($childPagesCheck as $cPage) {
                 ?>
                 <li>
                     <a href="<?= $cPage->getHref() ?>" class="dropdown-item <?= $cPage->isActive()?'active':'' ?>">
-                        <?= $iconCpage!== false ? '<i class="'. $iconCpage .'"></i>' : '' ?>
+                        <?= $iconCpage!== false ? '<i class="nav-icon '. $iconCpage .'"></i>' : '' ?>
                         <?= $cPage->getLabel() ?>
                     </a>
                 </li>
