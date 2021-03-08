@@ -10,7 +10,7 @@ $icon = $page->showIcon == true ? $page->icon : false;
 ?>
 <li class="nav-item">
     <a href="<?= $page->getHref() ?>" class="nav-link <?= $page->isActive()?'active':'' ?>">
-        <?= $icon!== false ? '<i class="'. $icon .'"></i>' : '' ?>
+        <?= $icon!== false ? '<i class="nav-icon '. $icon .'"></i>' : '' ?>
         <p><?= $page->getLabel() ?></p>
     </a>
 </li>
