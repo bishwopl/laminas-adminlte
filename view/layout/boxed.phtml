@@ -2,20 +2,24 @@
 /**
  * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
  */
+
 use LaminasAdminLTE\ThemeOptions\PartialOption;
-$title = $this->showAssets('brandnamefull', $this);
+
+if($this->pageTitle == NULL){
+    $pageTitle = $this->getAsset('brandnamefull');
+}
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?= $this->showAssets('meta', $this) ?>
-        <?= $this->headTitle($title)->setSeparator(' - ')->setAutoEscape(false) ?>
-        <?= $this->showAssets('favicon', $this) ?>
-        <?= $this->showAssets('css', $this) ?>
+        <?= $this->headMeta() ?>
+        <?= $this->headTitle($pageTitle)->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?= $this->headLink() ?>
+        <?= $this->headScript() ?>
     </head>
-    <body class="hold-transition sidebar-mini layout-boxed">
+    <body class="hold-transition sidebar-mini layout-boxed <?= $this->getAsset('accentColor') ?>">
         <div class="wrapper">
-            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <nav class="main-header navbar navbar-expand <?= $this->getAsset('topnavbarskin') ?>">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -23,37 +27,34 @@ $title = $this->showAssets('brandnamefull', $this);
                 </ul>
                 <?=
                         $this->navigation('navigation')
-                        ->menu($this->showAssets('topNavigationKey', $this))
+                        ->menu($this->getAsset('topNavigationKey'))
                         ->setMinDepth(0)
                         ->setMaxDepth(3)
                         ->setUlClass('navbar-nav')
                         ->setPartial(PartialOption::$menuTop)
                 ?>
-                <?= $this->showAssets('showsearch', $this) ? $this->partial(PartialOption::$searchForm) : '' ?>
+                <?= $this->getAsset('showsearch') ? $this->partial(PartialOption::$searchForm) : '' ?>
                 <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <?= $this->showAssets('showcontrol', $this) ? $this->partial(PartialOption::$customizPanel) : '' ?>
+                    <?= $this->getAsset('showcontrol') ? $this->partial(PartialOption::$customizPanel) : '' ?>
                 </ul>
             </nav>
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <a href="<?= $this->url('home') ?>" class="brand-link">
-                    <img src="<?= $this->showAssets('brandLogo', $this) ?>" 
-                         title="<?= $this->showAssets('brandnamefull', $this) ?>" 
-                         alt="<?= $this->showAssets('brandnamefull', $this) ?>" 
+                <a href="<?= $this->url('home') ?>" class="brand-link <?= $this->getAsset('brandLinkColor') ?>">
+                    <img src="<?= $this->basePath($this->getAsset('brandLogo')) ?>" 
+                         title="<?= $this->getAsset('brandnamefull') ?>" 
+                         alt="<?= $this->getAsset('brandnamefull') ?>" 
                          class="brand-image img-circle elevation-3"
                          style="opacity: .8">
                     <span class="brand-text font-weight-light">
-                        <?= $this->showAssets('brandnameshort', $this) ?>
+                        <?= $this->getAsset('brandnameshort') ?>
                     </span>
                 </a>
                 <div class="sidebar">
-                    <?= $this->partial(\LaminasAdminLTE\ThemeOptions\PartialOption::$userInfoSidebar, [
-                        'userImage' => '../../dist/img/user2-160x160.jpg',
-                        'userInfo'  => '<a href="#" class="d-block">Alexander Pierce</a>'
-                    ]) ?>
+                    <?= $this->partial(\LaminasAdminLTE\ThemeOptions\PartialOption::$userInfoSidebar) ?>
                     <nav class="mt-2">
                         <?=
                                 $this->navigation('navigation')
-                                ->menu($this->showAssets('topNavigationKey', $this))
+                                ->menu($this->getAsset('topNavigationKey'))
                                 ->setMinDepth(0)
                                 ->setMaxDepth(3)
                                 ->setUlClass('nav nav-pills nav-sidebar flex-column')
@@ -63,7 +64,7 @@ $title = $this->showAssets('brandnamefull', $this);
                 </div>
             </aside>
             <div class="content-wrapper">
-                <?php if($this->showAssets('showbreadcrumb', $this)):  ?>
+                <?php if($this->getAsset('showbreadcrumb')):  ?>
                     <section class="content-header">
                         <div class="container">
                             <div class="row mb-2">
@@ -75,7 +76,7 @@ $title = $this->showAssets('brandnamefull', $this);
                                 <div class="col-sm-6">
                                     <?=
                                     $this->navigation('navigation')
-                                        ->breadcrumbs()
+                                        ->breadcrumbs($this->getAsset('navigationKeyForBreadcrumb'))
                                         ->setMinDepth(0)
                                         ->setSeparator('>') 
                                         ->setPartial(PartialOption::$breadcrumb)
@@ -93,9 +94,9 @@ $title = $this->showAssets('brandnamefull', $this);
                 <br/>
             </div>
             <?= $this->partial(PartialOption::$footer) ?>
-            <?= $this->showAssets('showcontrol', $this) ? '<aside class="control-sidebar control-sidebar-dark"></aside>' : '' ?>
+            <?= $this->getAsset('showcontrol') ? '<aside class="control-sidebar control-sidebar-dark"></aside>' : '' ?>
         </div>
-        <?= $this->showAssets('js', $this) ?>
+        <?= $this->inlineScript() ?>
     </body>
 </html>
 
