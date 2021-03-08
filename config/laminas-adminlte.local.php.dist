@@ -5,6 +5,7 @@ use LaminasAdminLTE\ThemeOptions\PluginOption;
 use LaminasAdminLTE\ThemeOptions\AccentColorOption;
 use LaminasAdminLTE\ThemeOptions\NavbarDarkSkinOption;
 use LaminasAdminLTE\ThemeOptions\NavbarLightSkinOption;
+use LaminasAdminLTE\ThemeOptions\SidebarSkinOption;
 use LaminasAdminLTE\ThemeOptions\ColorOption;
 
 return [
