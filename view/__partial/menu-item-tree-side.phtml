@@ -20,7 +20,7 @@ foreach ($childPagesCheck as $cPage) {
 ?>
 <li class="<?= $class ?>">
     <a href="#" class="nav-link <?= $linkClass ?>">
-        <?= $icon!== false ? '<i class="'. $icon .'"></i>' : '' ?>
+        <?= $icon!== false ? '<i class="nav-icon '. $icon .'"></i>' : '' ?>
         <p><?= $page->getLabel() ?></p>
     </a>
     <ul class="nav nav-treeview">
@@ -38,7 +38,7 @@ foreach ($childPagesCheck as $cPage) {
                 ?>
                 <li class="nav-item">
                     <a href="<?= $cPage->getHref() ?>" class="nav-link <?= $cPage->isActive() ? 'active' : '' ?>">
-                        <?= $iconCpage!== false ? '<i class="'. $iconCpage .'"></i>' : '' ?>
+                        <?= $iconCpage!== false ? '<i class="nav-icon '. $iconCpage .'"></i>' : '' ?>
                         <p><?= $cPage->getLabel() ?></p>
                     </a>
                 </li>
