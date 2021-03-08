@@ -10,6 +10,11 @@ use LaminasAdminLTE\ModuleOptions\ModuleOptionsFactory;
 use LaminasAdminLTE\ThemeOptions\LayoutOption;
 use LaminasAdminLTE\ThemeOptions\PluginOption;
 use LaminasAdminLTE\ThemeOptions\PartialOption;
+use LaminasAdminLTE\ThemeOptions\AccentColorOption;
+use LaminasAdminLTE\ThemeOptions\NavbarDarkSkinOption;
+use LaminasAdminLTE\ThemeOptions\NavbarLightSkinOption;
+use LaminasAdminLTE\ThemeOptions\ColorOption;
+use LaminasAdminLTE\ThemeOptions\SidebarSkinOption;
 use LaminasAdminLTE\Service\CustomNavigation;
 use LaminasAdminLTE\Service\CustomNavigationFactory;
 
@@ -44,6 +49,10 @@ return [
         'topNavigationKey'     => 'laminas-adminlte-examples-navigation',
         'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
         'plugins'              => require __DIR__.'/plugins.config.php',
+        'accentColor'          => AccentColorOption::$accentLightblue,
+        'topNavbarSkin'        => NavbarDarkSkinOption::$navbarLightblue,
+        'sidebarSkin'          => SidebarSkinOption::$sidebarDarkLightblue,
+        'brandLinkColor'       => ColorOption::$bgLightblue,
         'meta'                 => [ //generates <meta {type} = {key} content = {content}>
             [
                 'type'    => 'name',
@@ -95,7 +104,7 @@ return [
                     'type'           => 'js',
                     'isFromCDN'      => false,
                     'isInlineScript' => true,
-                    'location'       => 'js/app.js'
+                    'location'       => 'js/app.min.js'
                 ],
             ],
         ],
