@@ -4,7 +4,6 @@ namespace LaminasAdminLTE\View\Helper;
 
 use Laminas\View\Helper\AbstractHelper;
 use LaminasAdminLTE\ModuleOptions\ModuleOptionsInterface;
-use Laminas\View\Renderer\RendererInterface;
 
 /**
  * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
@@ -12,24 +11,19 @@ use Laminas\View\Renderer\RendererInterface;
 class AssetViewHelper extends AbstractHelper {
 
     private $assetTypesMethod = [
-        'css' => 'displayCss',
-        'js' => 'displayJs',
-        'favicon' => 'displayFavicon',
-        'meta' => 'displayMeta',
-        'brandlogo' => 'getBrandLogo',
-        'brandnamefull' => 'getBrandNameFull',
-        'brandnameshort' => 'getBrandNameShort',
-        'showsearch' => 'getShowSearch',
-        'showcontrol' => 'getShowControl',
-        'showbreadcrumb' => 'getShowBreadcrumb',
-        'topnavigationkey' => 'getTopNavigationKey',
-        'sidebarnavigationkey' => 'getSidebarNavigationKey',
-    ];
-    private $metaTypesMethod = [
-        'name' => 'appendName',
-        'http-equiv' => 'appendHttpEquiv',
-        'property' => 'appendProperty',
-        'itemprop' => 'appendItemprop',
+        'brandlogo'                  => 'getBrandLogo',
+        'brandnamefull'              => 'getBrandNameFull',
+        'brandnameshort'             => 'getBrandNameShort',
+        'showsearch'                 => 'getShowSearch',
+        'showcontrol'                => 'getShowControl',
+        'showbreadcrumb'             => 'getShowBreadcrumb',
+        'topnavigationkey'           => 'getTopNavigationKey',
+        'sidebarnavigationkey'       => 'getSidebarNavigationKey',
+        'navigationkeyforbreadcrumb' => 'getNavigationKeyForBreadcrumb',
+        'accentcolor'                => 'getAccentColor',
+        'topnavbarskin'              => 'getTopNavbarSkin',
+        'sidebarskin'                => 'getSidebarSkin',
+        'brandlinkcolor'             => 'getBrandLinkColor',
     ];
 
     /**
@@ -45,100 +39,67 @@ class AssetViewHelper extends AbstractHelper {
      * @return string 
      * @param string $assetType valid values are 'css' or 'js'
      */
-    public function __invoke($assetType, RendererInterface $renderer) {
+    public function __invoke($assetType) {
         if (array_key_exists(strtolower($assetType), $this->assetTypesMethod)) {
             $method = $this->assetTypesMethod[strtolower($assetType)];
-            return $this->$method($renderer);
+            return $this->$method();
         } else {
             throw new \Exception("Asset type must be either "
-                    . implode(',', array_keys($this->assetTypesMethod)));
+                    . implode(',', array_keys($this->assetTypesMethod))."'$assetType' given.");
         }
         return;
     }
 
-    /**
-     * Returns css includes for HTML page
-     */
-    private function displayCss(RendererInterface $renderer) {
-        $ret = PHP_EOL;
-        $cssAssetsToInclude = $this->moduleOptions->getCssAssetsToIncludeInHTML();
-        foreach ($cssAssetsToInclude as $file) {
-            if ($file->isFromCDN == true) {
-                $href = $file->location;
-            } else {
-                $href = $renderer->basePath($file->location);
-            }
-            $ret = $renderer->headLink()->appendStylesheet($href) . PHP_EOL;
-        }
-        return $ret;
+    public function getBrandLogo() {
+        return $this->moduleOptions->brandLogo;
     }
 
-    /**
-     * Returns js includes for HTML page
-     */
-    private function displayJs(RendererInterface $renderer) {
-        $ret = PHP_EOL;
-        $jsAssetsToInclude = $this->moduleOptions->getJsAssetsToIncludeInHTML();
-        foreach ($jsAssetsToInclude as $file) {
-            if ($file->isFromCDN == true) {
-                $href = $file->location;
-            } else {
-                $href = $renderer->basePath($file->location);
-            }
-            $ret = $renderer->inlineScript()->appendFile($href) . PHP_EOL;
-        }
-        return $ret;
-    }
-
-    private function displayFavicon(RendererInterface $renderer) {
-        $ret = PHP_EOL . $renderer->headLink([
-                    'rel' => 'shortcut icon',
-                    'type' => 'image/vnd.microsoft.icon',
-                    'href' => $renderer->basePath($this->moduleOptions->favicon)
-                ]) . PHP_EOL;
-        return $ret;
-    }
-
-    public function displayMeta(RendererInterface $renderer) {
-        $ret = PHP_EOL;
-        $metas = $this->moduleOptions->meta;
-        foreach ($metas as $m) {
-            $method = $this->metaTypesMethod[$m->type];
-            $ret = $renderer->headMeta()->$method($m->key, $m->content) . PHP_EOL;
-        }
-        return $ret . PHP_EOL;
-    }
-
-    public function getBrandLogo(RendererInterface $renderer) {
-        return $renderer->basePath($this->moduleOptions->brandLogo);
-    }
-
-    public function getBrandNameFull(RendererInterface $renderer) {
+    public function getBrandNameFull() {
         return $this->moduleOptions->brandNameF;
     }
 
-    public function getBrandNameShort(RendererInterface $renderer) {
+    public function getBrandNameShort() {
         return $this->moduleOptions->brandNameS;
     }
 
-    public function getShowSearch(RendererInterface $renderer) {
+    public function getShowSearch() {
         return $this->moduleOptions->showSearch;
     }
 
-    public function getShowControl(RendererInterface $renderer) {
+    public function getShowControl() {
         return $this->moduleOptions->showControl;
     }
 
-    public function getShowBreadcrumb(RendererInterface $renderer) {
+    public function getShowBreadcrumb() {
         return $this->moduleOptions->showBreadcrumb;
     }
 
-    public function getTopNavigationKey(RendererInterface $renderer) {
+    public function getTopNavigationKey() {
         return $this->moduleOptions->topNavigationKey;
     }
 
-    public function getSidebarNavigationKey(RendererInterface $renderer) {
+    public function getSidebarNavigationKey() {
         return $this->moduleOptions->sidebarNavigationKey;
+    }
+    
+    public function getNavigationKeyForBreadcrumb() {
+        return $this->moduleOptions->navigationKeyForBreadcrumb;
+    }
+    
+    public function getAccentColor(){
+        return $this->moduleOptions->accentColor;
+    }
+    
+    public function getTopNavbarSkin(){
+        return $this->moduleOptions->topNavbarSkin;
+    }
+    
+    public function getSidebarSkin(){
+        return $this->moduleOptions->sidebarSkin;
+    }
+    
+    public function getBrandLinkColor(){
+        return $this->moduleOptions->brandLinkColor;
     }
 
 }
