@@ -34,7 +34,7 @@ class Module implements ViewHelperProviderInterface {
     public function getViewHelperConfig() {
         return [
             'factories' => [
-                'showAssets' => function($e) {
+                'getAsset' => function($e) {
                     $moduleOptions = $e->get(ModuleOptions::class);
                     return new AssetViewHelper($moduleOptions);
                 }
