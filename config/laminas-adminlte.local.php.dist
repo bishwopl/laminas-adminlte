@@ -1,6 +1,12 @@
 <?php
+
 use LaminasAdminLTE\ThemeOptions\LayoutOption;
 use LaminasAdminLTE\ThemeOptions\PluginOption;
+use LaminasAdminLTE\ThemeOptions\AccentColorOption;
+use LaminasAdminLTE\ThemeOptions\NavbarDarkSkinOption;
+use LaminasAdminLTE\ThemeOptions\NavbarLightSkinOption;
+use LaminasAdminLTE\ThemeOptions\ColorOption;
+
 return [
     'laminas_adminlte' => [
         /**
@@ -48,6 +54,7 @@ return [
         /**
          * This module uses laminas/laminas-navigation to generate top and sidebar menu.
          * 'topNavigationKey' is used select navigation for top bar
+         * 'laminas-adminlte-examples-navigation' is for example navigation
          */
         'topNavigationKey' => 'laminas-adminlte-examples-navigation',
         
@@ -56,6 +63,12 @@ return [
          * 'sidebarNavigationKey' is used select navigation for side bar menu
          */
         'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
+        
+        /**
+         * This module uses laminas/laminas-navigation to generate breadcrumbs.
+         * 'navigationKeyForBreadcrumb' is used select navigation for breadcrumbs
+         */
+        'navigationKeyForBreadcrumb' => 'laminas-adminlte-examples-navigation',
         
         /**
          * List of plugins. To add new plugins use the following format
@@ -83,6 +96,26 @@ return [
                 'active' => true
             ],
         ],
+        
+        /**
+         * Setting for accent color
+         */
+        'accentColor' => AccentColorOption::$accentLightblue,
+        
+        /**
+         * Setting for top navigation bar skin 
+         */
+        'topNavbarSkin' => NavbarDarkSkinOption::$navbarLightblue,
+        
+        /**Setting for sidebar skin
+         * 
+         */
+        'sidebarSkin' => SidebarSkinOption::$sidebarDarkLightblue,
+        
+        /**
+         * Setting for brand logo skin
+         */
+        'brandLinkColor' => ColorOption::$bgLightblue,
         
         /**
          * Generates <meta {type} = {key} content = {content}> in DOM. Example
