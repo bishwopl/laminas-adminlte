@@ -21,6 +21,13 @@ class LayoutListener extends AbstractListenerAggregate {
      * @var \LaminasAdminLTE\ModuleOptions\ModuleOptionsInterface
      */
     private $moduleOptions;
+    
+    private $metaTypesMethod = [
+        'name' => 'appendName',
+        'http-equiv' => 'appendHttpEquiv',
+        'property' => 'appendProperty',
+        'itemprop' => 'appendItemprop',
+    ];
 
     public function __construct(
             TemplateMapResolver $templateMapResolver,
@@ -33,6 +40,11 @@ class LayoutListener extends AbstractListenerAggregate {
         $this->listeners[] = $events->attach(
                 MvcEvent::EVENT_RENDER,
                 [$this, 'setLayout'],
+                $priority
+        );
+        $this->listeners[] = $events->attach(
+                MvcEvent::EVENT_RENDER,
+                [$this, 'setScriptStyleFaviconAndMeta'],
                 $priority
         );
     }
@@ -56,7 +68,7 @@ class LayoutListener extends AbstractListenerAggregate {
         }
         // Extract module name
         $module = strtolower(substr($controller, 0, strpos($controller, '\\')));
-        
+
         if ($module == 'laminasadminlte') {
             return;
         }
@@ -64,4 +76,49 @@ class LayoutListener extends AbstractListenerAggregate {
         $layoutViewModel->setTemplate($this->moduleOptions->getSelectedLayout());
     }
 
+    /**
+     * Set headScripts, meta, favicon, styleSheets and inline scripts
+     * @param MvcEvent $event
+     * @return void
+     */
+    public function setScriptStyleFaviconAndMeta(MvcEvent $event): void {
+
+        $layoutViewModel = $event->getViewModel();
+        if ($layoutViewModel->terminate()) {
+            return;
+        }
+        
+        $sm = $event->getApplication()->getServiceManager();
+        $viewManager = $sm->get('ViewHelperManager');
+        
+
+        $jsAssetsToInclude = $this->moduleOptions->getJsAssetsToIncludeInHTML();
+        $cssAssetsToInclude = $this->moduleOptions->getCssAssetsToIncludeInHTML();
+        $metas = $this->moduleOptions->meta;
+
+        foreach ($metas as $m) {
+            $method = $this->metaTypesMethod[$m->type];
+            $viewManager->get('headMeta')->$method($m->key, $m->content);
+        }
+        
+        $viewManager->get('headLink')([
+            'rel' => 'shortcut icon',
+            'type' => 'image/vnd.microsoft.icon',
+            'href' => $viewManager->get('basePath')($this->moduleOptions->favicon)
+        ]);
+        
+        foreach ($cssAssetsToInclude as $file) {
+            $href = $file->isFromCDN == true ? $file->location : $viewManager->get('basePath')($file->location);
+            $viewManager->get('headLink')->appendStylesheet($href);
+        }
+
+        foreach ($jsAssetsToInclude as $file) {
+            $href = $file->isFromCDN == true ? $file->location : $viewManager->get('basePath')($file->location);
+            if ($file->isInlineScript == true) {
+                $viewManager->get('inlineScript')->appendFile($href);
+            } else {
+                $viewManager->get('headScript')->appendFile($href);
+            }
+        }
+    }
 }
