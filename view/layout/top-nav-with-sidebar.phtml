@@ -21,7 +21,7 @@ if($this->pageTitle == NULL){
         <div class="wrapper">
             <nav class="main-header navbar navbar-expand-md <?= $this->getAsset('topnavbarskin') ?>">
                 <div class="container">
-                    <a href="<?= $this->url('home') ?>" class="navbar-brand">
+                    <a href="<?= $this->url('home') ?>" class="navbar-brand <?= $this->getAsset('brandLinkColor') ?>">
                         <img src="<?= $this->basePath($this->getAsset('brandLogo')) ?>" title="<?= $this->getAsset('brandnamefull') ?>" alt="<?= $this->getAsset('brandnamefull') ?>" class="brand-image img-circle elevation-3"
                              style="opacity: .8">
                         <span class="brand-text font-weight-light"><?= $this->getAsset('brandnameshort') ?></span>
