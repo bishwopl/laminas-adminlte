@@ -2,24 +2,29 @@
 /**
  * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
  */
-$title = $this->showAssets('brandnamefull', $this);
+
+use LaminasAdminLTE\ThemeOptions\PartialOption;
+
+if($this->pageTitle == NULL){
+    $pageTitle = $this->getAsset('brandnamefull');
+}
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?= $this->showAssets('meta', $this) ?>
-        <?= $this->headTitle($title)->setSeparator(' - ')->setAutoEscape(false) ?>
-        <?= $this->showAssets('favicon', $this) ?>
-        <?= $this->showAssets('css', $this) ?>
+        <?= $this->headMeta() ?>
+        <?= $this->headTitle($pageTitle)->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?= $this->headLink() ?>
+        <?= $this->headScript() ?>
     </head>
-    <body class="hold-transition layout-top-nav">
+    <body class="hold-transition layout-top-nav <?= $this->getAsset('accentColor') ?>">
         <div class="wrapper">
-            <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+            <nav class="main-header navbar navbar-expand-md <?= $this->getAsset('topnavbarskin') ?>">
                 <div class="container">
                     <a href="<?= $this->url('home') ?>" class="navbar-brand">
-                        <img src="<?= $this->showAssets('brandLogo', $this) ?>" title="<?= $this->showAssets('brandnamefull', $this) ?>" alt="<?= $this->showAssets('brandnamefull', $this) ?>" class="brand-image img-circle elevation-3"
+                        <img src="<?= $this->basePath($this->getAsset('brandLogo')) ?>" title="<?= $this->getAsset('brandnamefull') ?>" alt="<?= $this->getAsset('brandnamefull') ?>" class="brand-image img-circle elevation-3"
                              style="opacity: .8">
-                        <span class="brand-text font-weight-light"><?= $this->showAssets('brandnameshort', $this) ?></span>
+                        <span class="brand-text font-weight-light"><?= $this->getAsset('brandnameshort') ?></span>
                     </a>
                     <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -27,24 +32,24 @@ $title = $this->showAssets('brandnamefull', $this);
                     <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                         <?=
                                 $this->navigation('navigation')
-                                ->menu($this->showAssets('topNavigationKey', $this))
+                                ->menu($this->getAsset('topNavigationKey'))
                                 ->setMinDepth(0)
                                 ->setMaxDepth(3)
                                 ->setUlClass('navbar-nav')
                                 ->setPartial('partial/menu-top')
                         ?>
-                        <?= $this->showAssets('showsearch', $this) ? $this->partial('partial/search-form') : '' ?>
+                        <?= $this->getAsset('showsearch') ? $this->partial('partial/search-form') : '' ?>
                         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                            <?= $this->showAssets('showcontrol', $this) ? $this->partial('partial/customize-panel') : '' ?>
+                            <?= $this->getAsset('showcontrol') ? $this->partial('partial/customize-panel') : '' ?>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <?= $this->showAssets('showcontrol', $this) ? '<aside class="control-sidebar control-sidebar-dark"></aside>' : '' ?>
+            <?= $this->getAsset('showcontrol') ? '<aside class="control-sidebar control-sidebar-dark"></aside>' : '' ?>
             <div class="content-wrapper">
                 <div class="content">
                     <div class="content-header">
-                        <?php if($this->showAssets('showbreadcrumb', $this)):  ?>
+                        <?php if($this->getAsset('showbreadcrumb')):  ?>
                                 <div class="container">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
@@ -55,7 +60,7 @@ $title = $this->showAssets('brandnamefull', $this);
                                         <div class="col-sm-6">
                                             <?=
                                             $this->navigation('navigation')
-                                                ->breadcrumbs()
+                                                ->breadcrumbs($this->getAsset('navigationKeyForBreadcrumb'))
                                                 ->setMinDepth(0)
                                                 ->setSeparator('>') 
                                                 ->setPartial('partial/breadcrumb')
@@ -73,7 +78,7 @@ $title = $this->showAssets('brandnamefull', $this);
             </div>
             <?= $this->partial('partial/footer') ?>
         </div>
-        <?= $this->showAssets('js', $this) ?>
+        <?= $this->inlineScript() ?>
     </body>
 </html>
 
