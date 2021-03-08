@@ -70,6 +70,7 @@ Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.
         /**
          * This module uses laminas/laminas-navigation to generate top and sidebar menu.
          * 'topNavigationKey' is used select navigation for top bar
+         * 'laminas-adminlte-examples-navigation' is for example navigation
          */
         'topNavigationKey' => 'laminas-adminlte-examples-navigation',
         
@@ -80,14 +81,20 @@ Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.
         'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
         
         /**
+         * This module uses laminas/laminas-navigation to generate breadcrumbs.
+         * 'navigationKeyForBreadcrumb' is used select navigation for breadcrumbs
+         */
+        'navigationKeyForBreadcrumb' => 'laminas-adminlte-examples-navigation',
+        
+        /**
          * List of plugins. To add new plugins use the following format
          * 'pluginname' => [
          *       'active' => true, set true to enable the plugin
          *       'files' => [
          *           [
          *               'type' => 'js',
-         *               'isFromCDN' => false, //if set true location is treated as URL ie src = 'location',
-         *                                     //if not src = '$this->basePath('location')' is used;
+         *               'isFromCDN' => false, //if set true location is treated as URL ie src = 'location', if not src = '$this->basePath('location')' is used;
+         *               'isInlineScript' => true, //if true includes script at the last, else put script in <head>
          *               'location' => 'plugins/myscript.js',
          *           ],
          *           [
@@ -107,6 +114,26 @@ Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.
         ],
         
         /**
+         * Setting for accent color
+         */
+        'accentColor' => AccentColorOption::$accentLightblue,
+        
+        /**
+         * Setting for top navigation bar skin 
+         */
+        'topNavbarSkin' => NavbarDarkSkinOption::$navbarLightblue,
+        
+        /**Setting for sidebar skin
+         * 
+         */
+        'sidebarSkin' => SidebarSkinOption::$sidebarDarkLightblue,
+        
+        /**
+         * Setting for brand logo skin
+         */
+        'brandLinkColor' => ColorOption::$bgLightblue,
+        
+        /**
          * Generates <meta {type} = {key} content = {content}> in DOM. Example
          * [
          *      'type' => 'http-equiv',
@@ -122,7 +149,7 @@ Copy config/laminas-adminlte.local.php.dist to config/autoload/laminas-adminlte.
          * If your custom layout requires a specific plugin then you can either
          * enable the plugin after changing layout or
          * use this option. This method is useful if layout is changed by the 
-         * application during execution such as different layout for different user roles
+         * application during execution such as different layout for different use roles
          */
         'layout_plugins' => [//plugins required for a specific layout
             LayoutOption::$fixedSidebar => [
