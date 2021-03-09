@@ -35,25 +35,122 @@ return [
             'laminas-adminlte-examples-navigation' => CustomNavigation::class,
         ],
     ],
+    
     'laminas_adminlte' => [
-        //'compressOutput'       => true,
-        //'compressionLevel'     => 2,
-        'favicon'              => 'img/favicon.ico', //url relative to basepth
-        'brandLogo'            => 'dist/img/AdminLTELogo.png', //url relative to basepth
-        'brandNameF'           => 'AdminLTE3 - Laminas MVC Framework Integration',
-        'brandNameS'           => 'Laminas-AdminLTE3',
-        'showControl'          => true,
-        'showSearch'           => true,
-        'showBreadcrumb'       => false,
-        'layout'               => LayoutOption::$topNavigation,
-        'topNavigationKey'     => 'laminas-adminlte-examples-navigation',
+        
+        /*
+         * Favicon of your application
+         * url relative to basepth
+         */
+        'favicon' => 'img/favicon.ico',
+        
+        /*
+         * Bramd logo of your application
+         * url relative to basepth
+         */
+        'brandLogo' => 'dist/img/AdminLTELogo.png',
+        
+        /*
+         * Full brand name of your organization
+         */
+        'brandNameF' => 'AdminLTE3 - Laminas MVC Framework Integration',
+        
+        /*
+         * Short brand name of your organization
+         */
+        'brandNameS' => 'Laminas-AdminLTE3',
+        
+        /*
+         * Set true to display control sidebar
+         */
+        'showControl' => true,
+        
+        /*
+         * Set true to display search field in navigation bar
+         */
+        'showSearch' => true,
+        
+        /*
+         * Set true to display breadcrumb
+         */
+        'showBreadcrumb' => false,
+        
+        /*
+         * Choose a layout for your application
+         */
+        'layout' => LayoutOption::$topNavigation,
+        
+        /*
+         * This module uses laminas/laminas-navigation to generate top and sidebar menu.
+         * 'topNavigationKey' is used select navigation for top bar
+         * 'laminas-adminlte-examples-navigation' is for example navigation
+         */
+        'topNavigationKey' => 'laminas-adminlte-examples-navigation',
+        
+        /*
+         * This module uses laminas/laminas-navigation to generate top menu and sidebar menu.
+         * 'sidebarNavigationKey' is used select navigation for side bar menu
+         */
         'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
-        'plugins'              => require __DIR__.'/plugins.config.php',
-        'accentColor'          => AccentColorOption::$accentLightblue,
-        'topNavbarSkin'        => NavbarDarkSkinOption::$navbarLightblue,
-        'sidebarSkin'          => SidebarSkinOption::$sidebarDarkLightblue,
-        'brandLinkColor'       => ColorOption::$bgLightblue,
-        'meta'                 => [ //generates <meta {type} = {key} content = {content}>
+        
+        /*
+         * This module uses laminas/laminas-navigation to generate breadcrumbs.
+         * 'navigationKeyForBreadcrumb' is used select navigation for breadcrumbs
+         */
+        'navigationKeyForBreadcrumb' => 'laminas-adminlte-examples-navigation',
+        
+        /*
+         * List of plugins. To add new plugins use the following format
+         * 'pluginname' => [
+         *       'active' => true, set true to enable the plugin
+         *       'files' => [
+         *           [
+         *               'type' => 'js',
+         *               'isFromCDN' => false, //if set true location is treated as URL ie src = 'location', if not src = '$this->basePath('location')' is used;
+         *               'isInlineScript' => true, //if true includes script at the last, else put script in <head>
+         *               'location' => 'plugins/myscript.js',
+         *           ],
+         *           [
+         *               'type' => 'css',
+         *               'isFromCDN' => true,
+         *               'location' => 'plugins/mystyle.css',
+         *           ],
+         *       ],
+         * ];
+         * A number of plugins are already configured. To enable them just set active = true.
+         * To change default scripts and styles used the format described above
+         */
+        'plugins'  => require __DIR__.'/plugins.config.php',
+        
+        /*
+         * Setting for accent color
+         */
+        'accentColor' => AccentColorOption::$accentLightblue,
+        
+        /*
+         * Setting for top navigation bar skin 
+         */
+        'topNavbarSkin' => NavbarDarkSkinOption::$navbarLightblue,
+        
+        /*Setting for sidebar skin
+         * 
+         */
+        'sidebarSkin' => SidebarSkinOption::$sidebarDarkLightblue,
+        
+        /*
+         * Setting for brand logo skin
+         */
+        'brandLinkColor' => ColorOption::$bgLightblue,
+        
+        /*
+         * Generates <meta {type} = {key} content = {content}> in DOM. Example
+         * [
+         *      'type' => 'http-equiv',
+         *      'key' => 'X-UA-Compatible',
+         *      'content' => 'IE=edge'
+         * ] generates <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+         */
+        'meta' => [
             [
                 'type'    => 'name',
                 'key'     => 'Content-Type',
@@ -70,6 +167,10 @@ return [
                 'content' => 'IE=edge'
             ],
         ],
+        
+        /*
+         * These assets are required for the theme
+         */
         'theme_assets' => [
             'files' => [
                 [
@@ -108,17 +209,23 @@ return [
                 ],
             ],
         ],
+        
+        /*
+         * If your custom layout requires a specific plugin then you can either
+         * enable the plugin after changing layout or
+         * use this option. This method is useful if layout is changed by the 
+         * application during execution such as different layout for different use roles
+         */
         'layout_plugins' => [ //plugins required for a specific layout
             LayoutOption::$fixedSidebar => [
                 PluginOption::$overlayScrollbars,
-                PluginOption::$datatables,
             ],
             LayoutOption::$topNavigation => [
                 PluginOption::$overlayScrollbars,
-                PluginOption::$datatables,
             ],
         ],
     ],
+    
     'router' => [
         'routes' => [
             'laminas-adminlte-examples' => [
@@ -136,6 +243,7 @@ return [
             ],
         ],
     ],
+    
     'view_manager' => [
         'template_map' => [
             LayoutOption::$default           => __DIR__ . '/../view/layout/default.phtml',
@@ -143,6 +251,8 @@ return [
             LayoutOption::$fixedSidebar      => __DIR__ . '/../view/layout/fixed-sidebar.phtml',
             LayoutOption::$topNavWithSidebar => __DIR__ . '/../view/layout/top-nav-with-sidebar.phtml',
             LayoutOption::$topNavigation     => __DIR__ . '/../view/layout/top-navigation.phtml',
+            LayoutOption::$fixedFooter       => __DIR__ . '/../view/layout/fixed-footer.phtml',
+            LayoutOption::$fixedNavbar       => __DIR__ . '/../view/layout/fixed-navbar.phtml',
             LayoutOption::$error404          => __DIR__ . '/../view/error/404.phtml',
             LayoutOption::$errorIndex        => __DIR__ . '/../view/error/index.phtml',
             PartialOption::$breadcrumb       => __DIR__ . '/../view/__partial/breadcrumb.phtml',
@@ -163,6 +273,7 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    
     'asset_manager' => [
         'resolver_configs' => [
             'paths' => [
@@ -177,6 +288,7 @@ return [
             ),
         ],
     ],
+    
     'navigation' => [
         'default' => [
             
@@ -244,6 +356,26 @@ return [
                         'icon'     => 'far fa-circle nav-icon',
                         'params' => [
                             'layout_type' => str_replace('layout/', '', LayoutOption::$fixedSidebar)
+                        ]
+                    ],
+                    [
+                        'label'  => 'Fixed Navbar',
+                        'route' => 'laminas-adminlte-examples',
+                        'showIcon' => true,
+                        'showIconInBreadcrumb' => false,
+                        'icon'     => 'far fa-circle nav-icon',
+                        'params' => [
+                            'layout_type' => str_replace('layout/', '', LayoutOption::$fixedNavbar)
+                        ]
+                    ],
+                    [
+                        'label'  => 'Fixed Footer',
+                        'route' => 'laminas-adminlte-examples',
+                        'showIcon' => true,
+                        'showIconInBreadcrumb' => false,
+                        'icon'     => 'far fa-circle nav-icon',
+                        'params' => [
+                            'layout_type' => str_replace('layout/', '', LayoutOption::$fixedFooter)
                         ]
                     ],
                 ],

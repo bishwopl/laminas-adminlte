@@ -139,7 +139,6 @@ return [
         'layout_plugins' => [//plugins required for a specific layout
             LayoutOption::$fixedSidebar => [
                 PluginOption::$overlayScrollbars,
-                PluginOption::$datatables,
             ],
         ],
     ],

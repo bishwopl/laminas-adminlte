@@ -13,6 +13,8 @@ class LayoutOption {
     public static $topNavigation     = 'layout/top-navigation';
     public static $topNavWithSidebar = 'layout/top-nav-with-sidebar';
     public static $fixedSidebar      = 'layout/fixed-sidebar';
+    public static $fixedFooter       = 'layout/fixed-footer';
+    public static $fixedNavbar       = 'layout/fixed-navbar';
     public static $error404          = 'error/404';
     public static $errorIndex        = 'error/index';
 
