@@ -2,9 +2,6 @@
 
 namespace LaminasAdminLTE\ThemeOptions;
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
 class PartialOption {
     /* Partials START */
 
@@ -21,6 +18,8 @@ class PartialOption {
     public static $footer           = 'partial/footer';
     public static $userInfoSidebar  = 'partial/user-info-sidebar';
     public static $userInfoTopbar   = 'partial/user-info-topbar';
+    public static $sidebarMenu      = 'partial/sidebar-menu';
+    public static $topNavigation    = 'partial/top-navigation';
 
     /* Partials END */
 }

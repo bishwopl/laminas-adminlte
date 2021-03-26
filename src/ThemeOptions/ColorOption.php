@@ -2,28 +2,44 @@
 
 namespace LaminasAdminLTE\ThemeOptions;
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
 class ColorOption {
 
-    public static $bgPrimary   = 'navbar-primary';
-    public static $bgWarning   = 'navbar-warning';
-    public static $bgInfo      = 'navbar-info';
-    public static $bgDanger    = 'navbar-danger';
-    public static $bgSuccess   = 'navbar-success';
-    public static $bgIndigo    = 'navbar-indigo';
-    public static $bgLightblue = 'navbar-lightblue';
-    public static $bgNavy      = 'navbar-navy';
-    public static $bgPurple    = 'navbar-purple';
-    public static $bgFuchsia   = 'navbar-fuchsia';
-    public static $bgPink      = 'navbar-pink';
-    public static $bgMaroon    = 'navbar-maroon';
-    public static $bgOrange    = 'navbar-orange';
-    public static $bgLime      = 'navbar-lime';
-    public static $bgTeal      = 'navbar-teal';
-    public static $bgOlive     = 'navbar-olive';
-    public static $bgLight     = 'navbar-light';
-    public static $bgWhite     = 'navbar-white';
+    public static $navbarPrimary   = 'navbar-primary';
+    public static $navbarWarning   = 'navbar-warning';
+    public static $navbarInfo      = 'navbar-info';
+    public static $navbarDanger    = 'navbar-danger';
+    public static $navbarSuccess   = 'navbar-success';
+    public static $navbarIndigo    = 'navbar-indigo';
+    public static $navbarLightblue = 'navbar-lightblue';
+    public static $navbarNavy      = 'navbar-navy';
+    public static $navbarPurple    = 'navbar-purple';
+    public static $navbarFuchsia   = 'navbar-fuchsia';
+    public static $navbarPink      = 'navbar-pink';
+    public static $navbarMaroon    = 'navbar-maroon';
+    public static $navbarOrange    = 'navbar-orange';
+    public static $navbarLime      = 'navbar-lime';
+    public static $navbarTeal      = 'navbar-teal';
+    public static $navbarOlive     = 'navbar-olive';
+    public static $navbarLight     = 'navbar-light';
+    public static $navbarWhite     = 'navbar-white';
+    
+    public static $bgPrimary   = 'bg-primary';
+    public static $bgWarning   = 'bg-warning';
+    public static $bgInfo      = 'bg-info';
+    public static $bgDanger    = 'bg-danger';
+    public static $bgSuccess   = 'bg-success';
+    public static $bgIndigo    = 'bg-indigo';
+    public static $bgLightblue = 'bg-lightblue';
+    public static $bgNavy      = 'bg-navy';
+    public static $bgPurple    = 'bg-purple';
+    public static $bgFuchsia   = 'bg-fuchsia';
+    public static $bgPink      = 'bg-pink';
+    public static $bgMaroon    = 'bg-maroon';
+    public static $bgOrange    = 'bg-orange';
+    public static $bgLime      = 'bg-lime';
+    public static $bgTeal      = 'bg-teal';
+    public static $bgOlive     = 'bg-olive';
+    public static $bgLight     = 'bg-light';
+    public static $bgWhite     = 'bg-white';
 
 }

@@ -2,9 +2,6 @@
 
 namespace LaminasAdminLTE\ThemeOptions;
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
 class PluginOption {
 
     public static $bootstrapColorpicker       = 'bootstrapColorpicker';

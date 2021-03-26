@@ -4,10 +4,7 @@ namespace LaminasAdminLTE\ModuleOptions;
 
 use Laminas\Config\Config;
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
-class ModuleOptions extends Config implements ModuleOptionsInterface {
+class ModuleOptions extends Config {
 
     /**
      * List of Javascript assets to include in HTML
@@ -59,13 +56,13 @@ class ModuleOptions extends Config implements ModuleOptionsInterface {
         $themeAssets = $this->get('theme_assets');
         $plugins = $this->get('plugins');
         $layoutPlugins = $this->get('layout_plugins')[$this->getSelectedLayout()];
-        
-        if($layoutPlugins !== NULL){
+
+        if ($layoutPlugins !== NULL) {
             $layoutPlugins = $layoutPlugins->toArray();
-        }else{
+        } else {
             $layoutPlugins = [];
         }
-        
+
         foreach ($themeAssets->files as $file) {
             if ($file->type == 'js') {
                 $this->jsAssetList[] = $file;
@@ -87,4 +84,21 @@ class ModuleOptions extends Config implements ModuleOptionsInterface {
         }
         return;
     }
+
+    public function isTopNavigationLayout() {
+        return $this->layout_topnav == true;
+    }
+
+    public function isTopnavWithSidebarLayout() {
+        return $this->layout_topnav_with_sidebar == true;
+    }
+
+    public function isBoxedlayout() {
+        return $this->layout_boxed == true;
+    }
+
+    public function isSidebarLayout() {
+        return !($this->isTopNavigationLayout() || $this->isTopnavWithSidebarLayout() || $this->isBoxedlayout());
+    }
+
 }

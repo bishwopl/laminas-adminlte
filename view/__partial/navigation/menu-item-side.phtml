@@ -1,0 +1,28 @@
+<?php
+/* @var $page \Laminas\Navigation\Page\AbstractPage */
+$page = $this->page;
+$icon = $page->showIcon == true ? $page->icon : false;
+
+if ($page->header == true) {
+    ?>
+    <li class="nav-header">
+        <?= $page->getLabel() ?>
+    </li>
+<?php } else { ?>
+    <li class="nav-item">
+        <a href="<?= $page->getHref() ?>" class="nav-link <?= $page->isActive() ? 'active' : '' ?>">
+            <?= $icon !== false ? '<i class="nav-icon ' . $icon . '"></i>' : '' ?>
+            <p>
+                <?= $page->getLabel() ?>
+                <?php if (trim($page->labelRight) !== "") { ?>
+                    <span class="badge badge-<?= $page->labelColor ?> right">
+                        <?= $page->labelRight ?>
+                    </span>
+                <?php }
+                ?>
+            </p>
+        </a>
+    </li>
+    <?php
+}
+

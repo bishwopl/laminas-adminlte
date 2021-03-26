@@ -2,9 +2,6 @@
 
 use LaminasAdminLTE\ThemeOptions\PluginOption;
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
 return [
     PluginOption::$bootstrapColorpicker => [
         'active' => false,
@@ -69,7 +66,6 @@ return [
                 'location' => 'plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css',
             ],
         ],
-        
     ],
     PluginOption::$bsCustomFileInput => [
         'active' => false,
@@ -761,7 +757,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
             ],
         ],

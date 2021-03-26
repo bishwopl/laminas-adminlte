@@ -1,0 +1,22 @@
+<?php
+/* @var $page \Laminas\Navigation\Page\AbstractPage */
+$page = $this->page;
+$icon = $page->showIcon == true ? $page->icon : false;
+
+//donot display header in top navigation
+if ($page->header !== true) {
+    ?>
+    <li class="nav-item">
+        <a href="<?= $page->getHref() ?>" class="<?= $this->class ?> <?= $page->isActive() ? 'active' : '' ?>">
+            <?= $icon !== false ? '<i class="nav-icon ' . $icon . '"></i>' : '' ?>
+            <?= $page->getLabel() ?>
+            <?php if (trim($page->labelRight) !== "") { ?>
+                <span class="badge badge-<?= $page->labelColor ?> right">
+                    <?= $page->labelRight ?>
+                </span>
+            <?php }
+            ?>
+        </a>
+    </li>
+    <?php
+}

@@ -1,10 +1,9 @@
 <?php
 use LaminasAdminLTE\ThemeOptions\PartialOption;
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
+
 /* @var $container Laminas\Navigation\Navigation */
 $container = $this->container;
+
 $maxDepth = $this->navigation($container)->menu()->getMaxDepth();
 ?>
 <ul class="<?= $this->navigation($container)->menu()->getUlClass(); ?>"  data-widget="treeview" role="menu" data-accordion="false">

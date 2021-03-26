@@ -1,16 +1,12 @@
 <?php
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
-
 namespace LaminasAdminLTE\Listener;
 
 use Laminas\EventManager\AbstractListenerAggregate;
 use Laminas\EventManager\EventManagerInterface;
 use Laminas\Mvc\MvcEvent;
 use Laminas\View\Resolver\TemplateMapResolver;
-use LaminasAdminLTE\ModuleOptions\ModuleOptionsInterface;
+use LaminasAdminLTE\ModuleOptions\ModuleOptions;
 
 class LayoutListener extends AbstractListenerAggregate {
 
@@ -18,7 +14,7 @@ class LayoutListener extends AbstractListenerAggregate {
     private $templateMapResolver;
 
     /**
-     * @var \LaminasAdminLTE\ModuleOptions\ModuleOptionsInterface
+     * @var \LaminasAdminLTE\ModuleOptions\ModuleOptions
      */
     private $moduleOptions;
     
@@ -31,12 +27,12 @@ class LayoutListener extends AbstractListenerAggregate {
 
     public function __construct(
             TemplateMapResolver $templateMapResolver,
-            ModuleOptionsInterface $moduleOptions) {
+            ModuleOptions $moduleOptions) {
         $this->templateMapResolver = $templateMapResolver;
         $this->moduleOptions = $moduleOptions;
     }
 
-    public function attach(EventManagerInterface $events, $priority = 1) {
+    public function attach(EventManagerInterface $events, $priority = 99999) {
         $this->listeners[] = $events->attach(
                 MvcEvent::EVENT_RENDER,
                 [$this, 'setLayout'],
@@ -56,24 +52,21 @@ class LayoutListener extends AbstractListenerAggregate {
         if ($layoutViewModel->terminate()) {
             return;
         }
-        // Get and check the route match object
-        $routeMatch = $event->getRouteMatch();
-        if (!$routeMatch) {
+        if($layoutViewModel->lockLayout == true){
             return;
         }
-        // Get and check the parameter for current controller
-        $controller = $routeMatch->getParam('controller');
-        if (!$controller) {
-            return;
-        }
-        // Extract module name
-        $module = strtolower(substr($controller, 0, strpos($controller, '\\')));
-
-        if ($module == 'laminasadminlte') {
-            return;
-        }
+        
         // Change template
-        $layoutViewModel->setTemplate($this->moduleOptions->getSelectedLayout());
+        $layout = \LaminasAdminLTE\ThemeOptions\LayoutOption::$sidebar;
+        if($this->moduleOptions->isTopNavigationLayout()){
+            $layout = \LaminasAdminLTE\ThemeOptions\LayoutOption::$topNavigation;
+        }elseif($this->moduleOptions->isTopnavWithSidebarLayout()){
+            $layout = \LaminasAdminLTE\ThemeOptions\LayoutOption::$topNavWithSidebar;
+        }elseif($this->moduleOptions->isBoxedlayout()){
+            $layout = \LaminasAdminLTE\ThemeOptions\LayoutOption::$boxed;
+        }
+        
+        $layoutViewModel->setTemplate($layout);
     }
 
     /**
@@ -95,17 +88,25 @@ class LayoutListener extends AbstractListenerAggregate {
         $jsAssetsToInclude = $this->moduleOptions->getJsAssetsToIncludeInHTML();
         $cssAssetsToInclude = $this->moduleOptions->getCssAssetsToIncludeInHTML();
         $metas = $this->moduleOptions->meta;
+        $iconsToDisplay = [];
 
         foreach ($metas as $m) {
             $method = $this->metaTypesMethod[$m->type];
             $viewManager->get('headMeta')->$method($m->key, $m->content);
         }
         
-        $viewManager->get('headLink')([
-            'rel' => 'shortcut icon',
-            'type' => 'image/vnd.microsoft.icon',
-            'href' => $viewManager->get('basePath')($this->moduleOptions->favicon)
-        ]);
+        if($this->moduleOptions->use_favicon == true){
+            $iconsToDisplay = $this->moduleOptions->favicons;
+        }
+        
+        foreach($iconsToDisplay as $icon){
+            $viewManager->get('headLink')([
+                'rel' => $icon['rel'],
+                'type' => $icon['type'],
+                'href' => $viewManager->get('basePath')($icon['location']),
+                'sizes' => $icon['sizes'],
+            ]);
+        }
         
         foreach ($cssAssetsToInclude as $file) {
             $href = $file->isFromCDN == true ? $file->location : $viewManager->get('basePath')($file->location);

@@ -1,3 +1,5 @@
+#(NOT READY FOR PRODUCTION)
+
 # laminas-adminlte
 AdminLTE theme for [laminas/laminas-mvc-skeleton](https://github.com/laminas/laminas-mvc-skeleton)
 

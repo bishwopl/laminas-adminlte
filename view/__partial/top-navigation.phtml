@@ -1,0 +1,34 @@
+<?php
+
+use LaminasAdminLTE\ThemeOptions\PartialOption;
+?>
+<nav class="main-header navbar <?= $this->getCssClass('topnav') ?>">
+    <div class="container <?= $this->getCssClass('topnav_container') ?>">
+        <a href="<?= $this->url('home') ?>" class="navbar-brand <?= $this->getCssClass('brand') ?>">
+            <img src="<?= $this->basePath($this->getConfig('logo_img')) ?>" 
+                 title="<?= $this->getConfig('logo_img_alt') ?>" 
+                 alt="<?= $this->getConfig('logo_img_alt') ?>" 
+                 class="<?= $this->getCssClass('logo_img_class') ?>"
+                 style="opacity: .8">
+            <span class="brand-text <?= $this->getCssClass('brand_text') ?>"><?= $this->getConfig('logo') ?></span>
+        </a>
+        <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+            <?=
+                    $this->navigation('navigation')
+                    ->menu($this->getConfig('topNavigationKey'))
+                    ->setMinDepth(0)
+                    ->setMaxDepth(3)
+                    ->setUlClass('navbar-nav topnavigation')
+                    ->setPartial(PartialOption::$menuTop)
+            ?>
+            <?= $this->getConfig('showSearch') ? $this->partial(PartialOption::$searchForm) : '' ?>
+            <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                <?= $this->getConfig('usermenu_enabled') ? '<li>' . $this->partial(PartialOption::$userInfoTopbar) . '</li>' : '' ?>
+                <?= $this->getConfig('right_sidebar') ? '<li>' . $this->partial(PartialOption::$customizPanel) . '</li>' : '' ?>
+            </ul>
+        </div>
+    </div>
+</nav>

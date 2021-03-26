@@ -1,11 +1,57 @@
 <?php
+if (method_exists($this, 'isLoggedIn')) {
+    if ($this->isLoggedIn() == true) {
+        $this->userImage = "../../dist/img/user2-160x160.jpg";
+        $this->userName = "Alexander Pierce";
+        $this->userInfo = "Founder & CEO";
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
+        if (method_exists($this, 'getUserImage')) {
+            $this->userImage = $this->getUserImage();
+        }
+        if (method_exists($this, 'getUserName')) {
+            $this->userName = $this->getUserName();
+        }
+        if (method_exists($this, 'getUserInfo')) {
+            $this->userInfo = $this->getUserInfo();
+        }
+
+        $profileUrl = $this->getConfig('usermenu_profile_route') !== NULL ? $this->url($this->getConfig('usermenu_profile_route')) : '#';
+        $logoutUrl = $this->getConfig('usermenu_logout_route') !== NULL ? $this->url($this->getConfig('usermenu_logout_route')) : '#';
+        ?>
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <div class="user-panel">
+                    <img src="<?= $this->userImage ?>" class="img-circle elevation-2" alt="User Image">
+                    <span class="hidden-xs"><?= $this->userName ?></span>
+                </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <div class="card card-widget widget-user" style="margin-bottom: 0px;">
+                    <div class="widget-user-header <?= $this->getConfig('usermenu_header_class') ?>">
+                        <h3 class="widget-user-username"><?= $this->userName ?></h3>
+                        <h5 class="widget-user-desc"><?= $this->userInfo ?></h5>
+                    </div>
+                    <div class="widget-user-image">
+                        <img class="img-circle elevation-2" src="<?= $this->userImage ?>" alt="User Avatar">
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="text-left">
+                                    <a href="<?= $profileUrl ?>" class="btn btn-default btn-sm btn-flat">Profile</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-right">
+                                    <a href="<?= $logoutUrl ?>" class="btn btn-default btn-sm btn-flat">Sign Out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    <?php
+    }
+}
 

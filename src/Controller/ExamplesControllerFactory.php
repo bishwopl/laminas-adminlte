@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
-
 namespace LaminasAdminLTE\Controller;
 
 use Interop\Container\ContainerInterface;

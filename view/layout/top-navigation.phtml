@@ -1,84 +1,59 @@
 <?php
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
 
 use LaminasAdminLTE\ThemeOptions\PartialOption;
 
-if($this->pageTitle == NULL){
-    $pageTitle = $this->getAsset('brandnamefull');
+if ($this->pageTitle == NULL) {
+    $pageTitle = $this->getConfig('logo');
 }
+$title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title_postfix');
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <?= $this->headMeta() ?>
-        <?= $this->headTitle($pageTitle)->setSeparator(' - ')->setAutoEscape(false) ?>
-        <?= $this->headLink() ?>
-        <?= $this->headScript() ?>
+        <?= $this->headMeta() . "\n" ?>
+        <?= $this->headTitle($title)->setSeparator(' - ')->setAutoEscape(false) . "\n" ?>
+        <?= $this->headLink() . "\n" ?>
+        <?= $this->headScript() . "\n" ?>
     </head>
-    <body class="hold-transition layout-top-nav <?= $this->getAsset('accentColor') ?>">
+    <body class="hold-transition <?= $this->getCssClass("body") ?>">
         <div class="wrapper">
-            <nav class="main-header navbar navbar-expand-md <?= $this->getAsset('topnavbarskin') ?>">
-                <div class="container">
-                    <a href="<?= $this->url('home') ?>" class="navbar-brand <?= $this->getAsset('brandLinkColor') ?>">
-                        <img src="<?= $this->basePath($this->getAsset('brandLogo')) ?>" title="<?= $this->getAsset('brandnamefull') ?>" alt="<?= $this->getAsset('brandnamefull') ?>" class="brand-image img-circle elevation-3"
-                             style="opacity: .8">
-                        <span class="brand-text font-weight-light"><?= $this->getAsset('brandnameshort') ?></span>
-                    </a>
-                    <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-                        <?=
-                                $this->navigation('navigation')
-                                ->menu($this->getAsset('topNavigationKey'))
-                                ->setMinDepth(0)
-                                ->setMaxDepth(3)
-                                ->setUlClass('navbar-nav')
-                                ->setPartial('partial/menu-top')
-                        ?>
-                        <?= $this->getAsset('showsearch') ? $this->partial('partial/search-form') : '' ?>
-                        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                            <?= $this->getAsset('showcontrol') ? $this->partial('partial/customize-panel') : '' ?>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <?= $this->getAsset('showcontrol') ? '<aside class="control-sidebar control-sidebar-dark"></aside>' : '' ?>
-            <div class="content-wrapper">
-                <div class="content">
-                    <div class="content-header">
-                        <?php if($this->getAsset('showbreadcrumb')):  ?>
-                                <div class="container">
-                                    <div class="row mb-2">
-                                        <div class="col-sm-6">
-                                            <h4 class="m-0" id="pageTitleId">
-                                                <?= $this->pageTitle ?>
-                                            </h4>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <?=
-                                            $this->navigation('navigation')
-                                                ->breadcrumbs($this->getAsset('navigationKeyForBreadcrumb'))
+            <?= $this->partial(PartialOption::$topNavigation) ?>
+            <?php if ($this->getConfig('right_sidebar')) : ?>
+                <aside class="control-sidebar control-sidebar-<?= $this->getConfig('right_sidebar_theme') ?>"></aside>
+            <?php endif; ?>
+            <div class="content-wrapper <?= $this->getCssClass("content_wrapper") ?>">
+                <div class="content <?= $this->getCssClass("content") ?>">
+                    <div class="content-header <?= $this->getCssClass("content_header") ?>">
+                        <?php if ($this->getConfig('showBreadcrumb')): ?>
+                            <div class="container">
+                                <div class="row mb-2">
+                                    <div class="col-sm-6">
+                                        <h4 class="m-0" id="pageTitleId">
+                                            <?= $this->pageTitle ?>
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <?=
+                                                $this->navigation('navigation')
+                                                ->breadcrumbs($this->getConfig('navigationKeyForBreadcrumb'))
                                                 ->setMinDepth(0)
-                                                ->setSeparator('>') 
-                                                ->setPartial('partial/breadcrumb')
-                                            ?>
-                                        </div>
+                                                ->setSeparator('/')
+                                                ->setPartial(PartialOption::$breadcrumb)
+                                        ?>
                                     </div>
                                 </div>
+                            </div>
                         <?php endif; ?>
                     </div>
-                    <div class="container">
+                    <div class="container <?= $this->getCssClass("content") ?>">
                         <?= $this->content ?>
                     </div>
                 </div>
                 <br/>
             </div>
-            <?= $this->partial('partial/footer') ?>
+            <?= $this->partial(PartialOption::$footer) ?>
         </div>
-        <?= $this->inlineScript() ?>
+        <?= $this->inlineScript() . "\n" ?>
     </body>
 </html>
 

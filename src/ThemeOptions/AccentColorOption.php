@@ -2,9 +2,6 @@
 
 namespace LaminasAdminLTE\ThemeOptions;
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
 class AccentColorOption {
 
     public static $accentPrimary   = 'accent-primary';

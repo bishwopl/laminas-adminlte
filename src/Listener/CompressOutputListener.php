@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
-
 namespace LaminasAdminLTE\Listener;
 
 use Laminas\EventManager\AbstractListenerAggregate;

@@ -1,14 +1,24 @@
 <?php
-$separator = $maxDepth = $this->navigation()->breadcrumbs()->getSeparator();
+$separator = $this->navigation()->breadcrumbs()->getSeparator();
+if ($separator !== '') {
+    echo '<style>'
+    . '.breadcrumb-item + .breadcrumb-item::before { '
+    . 'padding-left: 0rem;'
+    . 'padding-right: 0rem;'
+    . 'content: "' . $separator . '";'
+    . '}'
+    . '</style>';
+}
 ?>
-<ol class="breadcrumb float-sm-right" id="mybreadcrumb" style="font-style : italic" >
+
+<ol class="breadcrumb <?= $this->getCssClass("breadcrumb") ?>" id="mybreadcrumb" >
     <?php
     // iterate through the pages
     $test1 = 0;
     $test2 = 0;
     foreach ($this->pages as $key => $page):
         ?>
-        <li class="">
+        <li class="breadcrumb-item">
             <?php
             // if this isn't the last page, add a link and the separator
             if ($key < count($this->pages) - 1):
@@ -18,7 +28,7 @@ $separator = $maxDepth = $this->navigation()->breadcrumbs()->getSeparator();
                     <?php if ($page->get('showIconInBreadcrumb') == true): ?>
                         <span class="<?= $page->get("icon") ?>"></span>
                     <?php endif; ?>
-                <?= $page->getLabel(); ?>
+                    <?= $page->getLabel(); ?>
                 </a>
                 <?php
             // otherwise, just output the name
@@ -30,10 +40,9 @@ $separator = $maxDepth = $this->navigation()->breadcrumbs()->getSeparator();
                     <span class="<?= $page->get("icon") ?>"></span>
                 <?php endif; ?>
                 <?= $page->getLabel(); ?>
-        <?php endif; ?>
+            <?php endif; ?>
         </li>
-        <?= $separator ?>
-<?php endforeach; ?>
+    <?php endforeach; ?>
 </ol>
 
 <?php
@@ -45,5 +54,5 @@ if (($test1 + $test2) == 0) {
             $("#mybreadcrumb").addClass("hidden");
         });
     </script>
-<?php
+    <?php
 }

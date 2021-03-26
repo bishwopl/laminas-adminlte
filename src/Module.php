@@ -7,7 +7,8 @@ use Laminas\Mvc\MvcEvent;
 use LaminasAdminLTE\ModuleOptions\ModuleOptions;
 use LaminasAdminLTE\Listener\LayoutListener;
 use LaminasAdminLTE\Listener\CompressOutputListener;
-use LaminasAdminLTE\View\Helper\AssetViewHelper;
+use LaminasAdminLTE\View\Helper\ConfigViewHelper;
+use LaminasAdminLTE\View\Helper\LayoutClasses;
 
 class Module implements ViewHelperProviderInterface {
 
@@ -34,9 +35,13 @@ class Module implements ViewHelperProviderInterface {
     public function getViewHelperConfig() {
         return [
             'factories' => [
-                'getAsset' => function($e) {
+                'getConfig' => function($e) {
                     $moduleOptions = $e->get(ModuleOptions::class);
-                    return new AssetViewHelper($moduleOptions);
+                    return new ConfigViewHelper($moduleOptions);
+                },
+                'getCssClass' => function($e){
+                    $moduleOptions = $e->get(ModuleOptions::class);
+                    return new LayoutClasses($moduleOptions);
                 }
             ],
         ];

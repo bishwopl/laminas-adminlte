@@ -1,15 +1,28 @@
 <?php
-/**
- * @author Bishwo Prasad Lamichhane <bishwo.prasad@gmail.com>
- */
-$this->userImage = "../../dist/img/user2-160x160.jpg";
-$this->userInfo = "<a href=\"#\" class=\"d-block\">Alexander Pierce</a>";
+if (method_exists($this, 'isLoggedIn')) {
+    if ($this->isLoggedIn() == true) {
+        $this->userImage = "../../dist/img/user2-160x160.jpg";
+        $this->userName = "Alexander Pierce";
+        $this->userInfo = "<a href=\"#\" class=\"d-block\">Founder and CEO</a>";;
+
+        if (method_exists($this, 'getUserImage')) {
+            $this->userImage = $this->getUserImage();
+        }
+        if (method_exists($this, 'getUserName')) {
+            $this->userName = $this->getUserName();
+        }
+        if (method_exists($this, 'getUserInfo')) {
+            $this->userInfo = $this->getUserInfo();
+        }
+    }
+    ?>
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            <img src="<?= $this->userImage ?>" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+            <?= $this->userInfo ?>
+        </div>
+    </div>
+<?php }
 ?>
-<div class="user-panel mt-3 pb-3 mb-3 d-flex">
-    <div class="image">
-        <img src="<?= $this->userImage ?>" class="img-circle elevation-2" alt="User Image">
-    </div>
-    <div class="info">
-        <?= $this->userInfo ?>
-    </div>
-</div>

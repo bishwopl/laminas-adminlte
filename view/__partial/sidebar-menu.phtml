@@ -1,0 +1,29 @@
+<?php
+
+use LaminasAdminLTE\ThemeOptions\PartialOption;
+?>
+<aside class="main-sidebar <?= $this->getCssClass('sidebar') ?>">
+    <a href="<?= $this->url('home') ?>" class="brand-link <?= $this->getCssClass('brand') ?>">
+        <img src="<?= $this->basePath($this->getConfig('logo_img')) ?>" 
+             title="<?= $this->getConfig('logo') ?>" 
+             alt="<?= $this->getConfig('logo') ?>" 
+             class="brand-image <?= $this->getCssClass('logo_img_class') ?>"
+             style="opacity: .8">
+        <span class="brand-text <?= $this->getCssClass('brand_text') ?>">
+            <?= $this->getConfig('logo') ?>
+        </span>
+    </a>
+    <div class="sidebar">
+        <?= $this->partial(PartialOption::$userInfoSidebar) ?>
+        <nav class="mt-2">
+            <?=
+                    $this->navigation('navigation')
+                    ->menu($this->getConfig('topNavigationKey'))
+                    ->setMinDepth(0)
+                    ->setMaxDepth(3)
+                    ->setUlClass('nav nav-pills nav-sidebar flex-column')
+                    ->setPartial(PartialOption::$menuSide)
+            ?>
+        </nav>
+    </div>
+</aside>
