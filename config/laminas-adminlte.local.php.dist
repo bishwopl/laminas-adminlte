@@ -1,14 +1,12 @@
 <?php
 
+use Laminas\ConfigAggregator\ConfigAggregator;
+use Laminas\ConfigAggregator\ArrayProvider;
 use LaminasAdminLTE\ThemeOptions\LayoutOption;
 use LaminasAdminLTE\ThemeOptions\PluginOption;
-use LaminasAdminLTE\ThemeOptions\AccentColorOption;
-use LaminasAdminLTE\ThemeOptions\NavbarDarkSkinOption;
-use LaminasAdminLTE\ThemeOptions\NavbarLightSkinOption;
-use LaminasAdminLTE\ThemeOptions\SidebarSkinOption;
 use LaminasAdminLTE\ThemeOptions\ColorOption;
 
-return [
+$config = [
     'laminas_adminlte' => [
         
         /*
@@ -189,9 +187,20 @@ return [
          * application during execution such as different layout for different use roles
          */
         'layout_plugins' => [//plugins required for a specific layout
-            LayoutOption::$fixedSidebar => [
+            LayoutOption::$sidebar => [
+                PluginOption::$overlayScrollbars,
+            ],
+            LayoutOption::$topNavigation => [
                 PluginOption::$overlayScrollbars,
             ],
         ],
     ],
 ];
+
+$skin = [
+    'laminas_adminlte' => \LaminasAdminLTE\Config\LayoutConfig::getDarkLightblueConfig()
+];
+
+$configAggregator = new ConfigAggregator([new ArrayProvider($config), new ArrayProvider($skin)]);
+
+return $configAggregator->getMergedConfig();

@@ -3,7 +3,7 @@
 use LaminasAdminLTE\ThemeOptions\PartialOption;
 
 if ($this->pageTitle == NULL) {
-    $this->pageTitle = $this->getConfig('default_title');
+    $pageTitle = $this->getConfig('default_title');
 }
 
 $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title_postfix');
