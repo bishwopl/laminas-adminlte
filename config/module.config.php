@@ -40,30 +40,36 @@ return [
          * Set true to display control sidebar
          */
         'showControl' => true,
+        
         /*
          * Set true to display search field in navigation bar
          */
         'showSearch' => true,
+        
         /*
          * Set true to display breadcrumb
          */
         'showBreadcrumb' => true,
+        
         /*
          * This module uses laminas/laminas-navigation to generate top and sidebar menu.
          * 'topNavigationKey' is used select navigation for top bar
          * 'laminas-adminlte-examples-navigation' is for example navigation
          */
         'topNavigationKey' => 'laminas-adminlte-examples-navigation',
+        
         /*
          * This module uses laminas/laminas-navigation to generate top menu and sidebar menu.
          * 'sidebarNavigationKey' is used select navigation for side bar menu
          */
         'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
+        
         /*
          * This module uses laminas/laminas-navigation to generate breadcrumbs.
          * 'navigationKeyForBreadcrumb' is used select navigation for breadcrumbs
          */
         'navigationKeyForBreadcrumb' => 'laminas-adminlte-examples-navigation',
+        
         /*
          * List of plugins. To add new plugins use the following format
          * 'pluginname' => [
@@ -86,6 +92,7 @@ return [
          * To change default scripts and styles used the format described above
          */
         'plugins' => require __DIR__ . '/plugins.config.php',
+        
         /*
          * Generates <meta {type} = {key} content = {content}> in DOM. Example
          * [
@@ -111,6 +118,7 @@ return [
                 'content' => 'IE=edge'
             ],
         ],
+        
         /*
          * These assets are required for the theme
          */
@@ -152,6 +160,7 @@ return [
                 ],
             ],
         ],
+        
         /*
          * If your custom layout requires a specific plugin then you can either
          * enable the plugin after changing layout or
@@ -166,30 +175,22 @@ return [
                 PluginOption::$overlayScrollbars,
             ],
         ],
+        
         /*
           |--------------------------------------------------------------------------
           | Title
           |--------------------------------------------------------------------------
-          |
           | Here you can change the default title of your admin panel.
-          |
-          | For detailed instructions you can look the title section here:
-          | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/6.-Basic-Configuration
-          |
          */
         'default_title' => 'AdminLTE 3',
         'title_prefix' => '',
         'title_postfix' => ' - Laminas AdminLTE Integration',
+        
         /*
           |--------------------------------------------------------------------------
           | Favicon
           |--------------------------------------------------------------------------
-          |
           | Here you can activate the favicon.
-          |
-          | For detailed instructions you can look the favicon section here:
-          | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/6.-Basic-Configuration
-          |
          */
         'use_favicon' => true,
         'favicons' => [
@@ -281,54 +282,48 @@ return [
             ],
              
         ],
+        
         /*
           |--------------------------------------------------------------------------
           | Logo
           |--------------------------------------------------------------------------
-          |
           | Here you can change the logo of your admin panel.
-          |
          */
         'logo' => 'Laminas-AdminLTE3',
         'logo_img' => 'dist/img/AdminLTELogo.png',
         'logo_img_class' => 'brand-image img-circle elevation-3',
         'logo_img_alt' => 'Laminas-AdminLTE3',
+        
         /*
           |--------------------------------------------------------------------------
           | User Menu
           |--------------------------------------------------------------------------
-          |
           | Here you can activate and change the user menu.
-          |
          */
         'usermenu_enabled' => true,
         'usermenu_header_class' => ColorOption::$bgLightblue,
         'usermenu_profile_route' => NULL,
         'usermenu_logout_route' => NULL,
+        
         /*
           |--------------------------------------------------------------------------
           | Layout
           |--------------------------------------------------------------------------
-          |
           | Here we change the layout of your admin panel.
-          |
-          |
           | ['xs' => true, 'md' => false, 'xl' => true]
          */
         'layout_topnav' => null,
-        'layout_topnav_with_sidebar' => null,
+        'layout_topnav_with_sidebar' => true,
         'layout_boxed' => null,
         'layout_fixed_sidebar' => null,
         'layout_fixed_navbar' => null,
         'layout_fixed_footer' => null,
+        
         /*
           |--------------------------------------------------------------------------
           | Authentication Views Classes
           |--------------------------------------------------------------------------
-          |
           | Here you can change the look and behavior of the authentication views.
-          |
-          |
          */
         'classes_auth_card' => 'card-outline card-primary',
         'classes_auth_header' => '',
@@ -336,13 +331,12 @@ return [
         'classes_auth_footer' => '',
         'classes_auth_icon' => '',
         'classes_auth_btn' => 'btn-flat btn-primary',
+        
         /*
           |--------------------------------------------------------------------------
           | Admin Panel Classes
           |--------------------------------------------------------------------------
-          |
           | Here you can change the look and behavior of the admin panel.
-          |
          */
         'classes_body' => '',
         'classes_brand' => '',
@@ -354,35 +348,31 @@ return [
         'classes_topnav' => 'navbar-white navbar-light navbar-expand-md',
         'classes_topnav_container' => 'container',
         'classes_breadcrumb' => 'float-sm-right text-sm',
+        
         /*
           |--------------------------------------------------------------------------
           | Sidebar
           |--------------------------------------------------------------------------
-          |
           | Here we can modify the sidebar of the admin panel.
-          |
-          |
          */
-        'sidebar_mini' => true,
+        'sidebar_mini' => false,
         'sidebar_collapse' => true,
+        
         /*
           |--------------------------------------------------------------------------
           | Control Sidebar (Right Sidebar)
           |--------------------------------------------------------------------------
-          |
           | Here we can modify the right sidebar aka control sidebar of the admin panel.
-          |
          */
         'right_sidebar' => true,
         'right_sidebar_icon' => 'fas fa-cogs',
         'right_sidebar_theme' => 'dark',
+        
         /*
           |--------------------------------------------------------------------------
           | URLs
           |--------------------------------------------------------------------------
-          |
           | Here we can modify the url settings of the admin panel.
-          |
          */
         'use_route_url' => false,
         'dashboard_url' => 'home',

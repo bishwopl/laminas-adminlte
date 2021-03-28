@@ -10,27 +10,104 @@ use LaminasAdminLTE\ThemeOptions\ColorOption;
 
 return [
     'laminas_adminlte' => [
-        /**
-         * Favicon of your application
-         * url relative to basepth
-         */
-        'favicon' => 'img/favicon.ico',
         
-        /**
-         * Bramd logo of your application
-         * url relative to basepth
+        /*
+          |--------------------------------------------------------------------------
+          | Title
+          |--------------------------------------------------------------------------
+          | Here you can change the default title of your admin panel.
          */
-        'brandLogo' => 'dist/img/AdminLTELogo.png',
+        'default_title' => 'AdminLTE 3',
+        'title_prefix' => '',
+        'title_postfix' => ' - Laminas AdminLTE Integration',
         
-        /**
-         * Full brand name of your organization
+        /*
+          |--------------------------------------------------------------------------
+          | Favicon
+          |--------------------------------------------------------------------------
+          | Here you can activate the favicon.
          */
-        'brandNameF' => 'AdminLTE3 - Laminas MVC Framework Integration',
+        'use_favicon' => true,
+        'favicons' => [
+            [
+                'type' => 'image/vnd.microsoft.icon',
+                'location' => 'favicons/favicon.ico',
+                'rel' => 'shortcut icon',
+                'sizes' => '48x48'
+            ],
+        ],
         
-        /**
-         * Short brand name of your organization
+        /*
+          |--------------------------------------------------------------------------
+          | Logo
+          |--------------------------------------------------------------------------
+          | Here you can change the logo of your admin panel.
          */
-        'brandNameS' => 'Laminas-AdminLTE3',
+        'logo' => 'Laminas-AdminLTE3',
+        'logo_img' => 'dist/img/AdminLTELogo.png',
+        'logo_img_class' => 'brand-image img-circle elevation-3',
+        'logo_img_alt' => 'Laminas-AdminLTE3',
+        
+        /*
+          |--------------------------------------------------------------------------
+          | User Menu
+          |--------------------------------------------------------------------------
+          | Here you can activate and change the user menu.
+         */
+        'usermenu_enabled' => true,
+        'usermenu_header_class' => ColorOption::$bgLightblue,
+        'usermenu_profile_route' => NULL,
+        'usermenu_logout_route' => NULL,
+        
+        /*
+          |--------------------------------------------------------------------------
+          | Layout
+          |--------------------------------------------------------------------------
+          | Here we change the layout of your admin panel.
+          | ['xs' => true, 'md' => false, 'xl' => true]
+         */
+        'layout_topnav' => null,
+        'layout_topnav_with_sidebar' => true,
+        'layout_boxed' => null,
+        'layout_fixed_sidebar' => null,
+        'layout_fixed_navbar' => null,
+        'layout_fixed_footer' => null,
+        
+        /*
+          |--------------------------------------------------------------------------
+          | Admin Panel Classes
+          |--------------------------------------------------------------------------
+          | Here you can change the look and behavior of the admin panel.
+         */
+        'classes_body' => '',
+        'classes_brand' => '',
+        'classes_brand_text' => 'font-weight-light',
+        'classes_content_header' => '',
+        'classes_content_wrapper' => '',
+        'classes_content' => '',
+        'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+        'classes_topnav' => 'navbar-white navbar-light navbar-expand-md',
+        'classes_topnav_container' => 'container',
+        'classes_breadcrumb' => 'float-sm-right text-sm',
+        
+        /*
+          |--------------------------------------------------------------------------
+          | Sidebar
+          |--------------------------------------------------------------------------
+          | Here we can modify the sidebar of the admin panel.
+         */
+        'sidebar_mini' => false,
+        'sidebar_collapse' => true,
+        
+        /*
+          |--------------------------------------------------------------------------
+          | Control Sidebar (Right Sidebar)
+          |--------------------------------------------------------------------------
+          | Here we can modify the right sidebar aka control sidebar of the admin panel.
+         */
+        'right_sidebar' => true,
+        'right_sidebar_icon' => 'fas fa-cogs',
+        'right_sidebar_theme' => 'dark',
         
         /**
          * Set true to display control sidebar
@@ -46,11 +123,6 @@ return [
          * Set true to display breadcrumb
          */
         'showBreadcrumb' => false,
-        
-        /**
-         * Choose a layout for your application
-         */
-        'layout' => LayoutOption::$topNavigation,
         
         /**
          * This module uses laminas/laminas-navigation to generate top and sidebar menu.
@@ -97,26 +169,6 @@ return [
                 'active' => true
             ],
         ],
-        
-        /**
-         * Setting for accent color
-         */
-        'accentColor' => AccentColorOption::$accentLightblue,
-        
-        /**
-         * Setting for top navigation bar skin 
-         */
-        'topNavbarSkin' => NavbarDarkSkinOption::$navbarLightblue,
-        
-        /**Setting for sidebar skin
-         * 
-         */
-        'sidebarSkin' => SidebarSkinOption::$sidebarDarkLightblue,
-        
-        /**
-         * Setting for brand logo skin
-         */
-        'brandLinkColor' => ColorOption::$bgLightblue,
         
         /**
          * Generates <meta {type} = {key} content = {content}> in DOM. Example
