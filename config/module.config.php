@@ -383,6 +383,7 @@ return [
         'password_email_url' => 'password/email',
         'profile_url' => false,
     ],
+    
     'router' => [
         'routes' => [
             'laminas-adminlte-examples' => [
@@ -400,48 +401,45 @@ return [
             ],
         ],
     ],
+    
     'view_manager' => [
         'template_map' => [
-            LayoutOption::$sidebar => __DIR__ . '/../view/layout/sidebar.phtml',
-            LayoutOption::$boxed => __DIR__ . '/../view/layout/boxed.phtml',
+            LayoutOption::$sidebar           => __DIR__ . '/../view/layout/sidebar.phtml',
+            LayoutOption::$boxed             => __DIR__ . '/../view/layout/boxed.phtml',
             LayoutOption::$topNavWithSidebar => __DIR__ . '/../view/layout/top-nav-with-sidebar.phtml',
-            LayoutOption::$topNavigation => __DIR__ . '/../view/layout/top-navigation.phtml',
-            LayoutOption::$error404 => __DIR__ . '/../view/error/404.phtml',
-            LayoutOption::$errorIndex => __DIR__ . '/../view/error/index.phtml',
-            PartialOption::$customizPanel => __DIR__ . '/../view/__partial/customization-panel.phtml',
-            PartialOption::$breadcrumb => __DIR__ . '/../view/__partial/navigation/breadcrumb.phtml',
-            PartialOption::$menuSide => __DIR__ . '/../view/__partial/navigation/menu-side.phtml',
-            PartialOption::$menuSimple => __DIR__ . '/../view/__partial/navigation/menu-simple.phtml',
-            PartialOption::$menuTop => __DIR__ . '/../view/__partial/navigation/menu-top.phtml',
-            PartialOption::$menuItem => __DIR__ . '/../view/__partial/navigation/menu-item.phtml',
-            PartialOption::$menuItemSide => __DIR__ . '/../view/__partial/navigation/menu-item-side.phtml',
-            PartialOption::$menuItemTree => __DIR__ . '/../view/__partial/navigation/menu-item-tree.phtml',
+            LayoutOption::$topNavigation     => __DIR__ . '/../view/layout/top-navigation.phtml',
+            LayoutOption::$error404          => __DIR__ . '/../view/error/404.phtml',
+            LayoutOption::$errorIndex        => __DIR__ . '/../view/error/index.phtml',
+            PartialOption::$customizPanel    => __DIR__ . '/../view/__partial/customization-panel.phtml',
+            PartialOption::$breadcrumb       => __DIR__ . '/../view/__partial/navigation/breadcrumb.phtml',
+            PartialOption::$menuSide         => __DIR__ . '/../view/__partial/navigation/menu-side.phtml',
+            PartialOption::$menuSimple       => __DIR__ . '/../view/__partial/navigation/menu-simple.phtml',
+            PartialOption::$menuTop          => __DIR__ . '/../view/__partial/navigation/menu-top.phtml',
+            PartialOption::$menuItem         => __DIR__ . '/../view/__partial/navigation/menu-item.phtml',
+            PartialOption::$menuItemSide     => __DIR__ . '/../view/__partial/navigation/menu-item-side.phtml',
+            PartialOption::$menuItemTree     => __DIR__ . '/../view/__partial/navigation/menu-item-tree.phtml',
             PartialOption::$menuItemTreeSide => __DIR__ . '/../view/__partial/navigation/menu-item-tree-side.phtml',
-            PartialOption::$searchForm => __DIR__ . '/../view/__partial/search-form.phtml',
-            PartialOption::$footer => __DIR__ . '/../view/__partial/footer.phtml',
-            PartialOption::$userInfoSidebar => __DIR__ . '/../view/__partial/user-info-sidebar.phtml',
-            PartialOption::$userInfoTopbar => __DIR__ . '/../view/__partial/user-info-topbar.phtml',
-            PartialOption::$sidebarMenu => __DIR__ . '/../view/__partial/sidebar-menu.phtml',
-            PartialOption::$topNavigation => __DIR__ . '/../view/__partial/top-navigation.phtml',
+            PartialOption::$searchForm       => __DIR__ . '/../view/__partial/search-form.phtml',
+            PartialOption::$footer           => __DIR__ . '/../view/__partial/footer.phtml',
+            PartialOption::$userInfoSidebar  => __DIR__ . '/../view/__partial/user-info-sidebar.phtml',
+            PartialOption::$userInfoTopbar   => __DIR__ . '/../view/__partial/user-info-topbar.phtml',
+            PartialOption::$sidebarMenu      => __DIR__ . '/../view/__partial/sidebar-menu.phtml',
+            PartialOption::$topNavigation    => __DIR__ . '/../view/__partial/top-navigation.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
     ],
+    
     'asset_manager' => [
         'resolver_configs' => [
             'paths' => [
                 $aLTEDirAssets,
                 __DIR__ . '/../public/'
             ],
-            'collections' => array(
-                'js/d.js' => array(
-                    'plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js',
-                    'plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js',
-                ),
-            ),
         ],
     ],
+    
     'navigation' => [
         'default' => [
         ],
