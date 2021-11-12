@@ -75,6 +75,7 @@ class LayoutClasses extends AbstractHelper {
     ];
     private $cssHelperLookup = [
         'body' => 'getBodyClass',
+        'body_layout' => 'getBodyLayoutClass',
         'brand' => 'getBrandClass',
         'brand_text' => 'getBrandTextClass',
         'content_header' => 'getContentHeaderClass',
@@ -106,6 +107,10 @@ class LayoutClasses extends AbstractHelper {
     }
 
     private function getBodyClass() {
+        return $this->moduleOptions->classes_body;
+    }
+    
+    private function getBodyLayoutClass(){
         $bodyClasses = [];
         $setting = $this->moduleOptions;
         foreach ($this->bodyCssClassOptions as $layoutName => $classNames) {
@@ -129,11 +134,10 @@ class LayoutClasses extends AbstractHelper {
                 $bodyClasses[$classNames['default']] = '';
             }
         }
-        
-        return implode(" ", array_keys($bodyClasses)) . " "
-                . $this->moduleOptions->classes_body 
+        $ret = implode(" ", array_keys($bodyClasses)) . " "
                 . ($this->moduleOptions->sidebar_mini==true?" sidebar-mini ":"")
                 . ($this->moduleOptions->sidebar_collapse==true && $this->moduleOptions->isSidebarLayout() ? " sidebar-collapse ":"");
+        return $ret;
     }
 
     /**

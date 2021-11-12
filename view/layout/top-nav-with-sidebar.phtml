@@ -15,18 +15,24 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
         <?= $this->headLink() . "\n" ?>
         <?= $this->headScript() . "\n" ?>
     </head>
-    <body class="hold-transition sidebar-collapse layout-top-nav <?= $this->getCssClass('body') ?>">
+    <body class="hold-transition layout-top-nav sidebar-collapse <?= $this->getCssClass('body') ?>">
         <div class="wrapper">
-            <?= $this->partial(PartialOption::$topNavigation) ?>
+            <?= $this->partial(PartialOption::$topNavigation, [
+                    'showTopNavigation' => true,
+                    'showTopBrand' => true,
+                    'wrapInContainer' => true
+                ]) 
+            ?>
             <?php if ($this->getConfig('right_sidebar')) : ?>
                 <aside class="control-sidebar control-sidebar-<?= $this->getConfig('right_sidebar_theme') ?>"></aside>
             <?php endif; ?>
             <?= $this->partial(PartialOption::$sidebarMenu) ?>
             <div class="content-wrapper <?= $this->getCssClass("content_wrapper") ?>">
                 <div class="content <?= $this->getCssClass("content") ?>">
-                    <div class="content-header <?= $this->getCssClass("content_header") ?>">
+                    <section class="content-header <?= $this->getCssClass("content_header") ?>">
                         <?php if ($this->getConfig('showBreadcrumb')): ?>
                             <div class="container">
+                                <?= $this->getCssClass('body') ?>
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <h4 class="m-0" id="pageTitleId">
@@ -45,10 +51,12 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                                 </div>
                             </div>
                         <?php endif; ?>
-                    </div>
-                    <div class="container <?= $this->getCssClass("content") ?>">
-                        <?= $this->content ?>
-                    </div>
+                    </section>
+                    <section class="content <?= $this->getCssClass("content") ?>">
+                        <div class="container">
+                            <?= $this->content ?>
+                        </div>
+                    </section>
                 </div>
                 <br/>
             </div>

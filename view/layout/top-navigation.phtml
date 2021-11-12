@@ -15,9 +15,14 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
         <?= $this->headLink() . "\n" ?>
         <?= $this->headScript() . "\n" ?>
     </head>
-    <body class="hold-transition <?= $this->getCssClass("body") ?>">
+    <body class="hold-transition sidebar-collapse layout-top-nav <?= $this->getCssClass('body') ?>">
         <div class="wrapper">
-            <?= $this->partial(PartialOption::$topNavigation) ?>
+            <?= $this->partial(PartialOption::$topNavigation, [
+                    'showTopNavigation' => true,
+                    'showTopBrand' => true,
+                    'wrapInContainer' => true
+                ]) 
+            ?>
             <?php if ($this->getConfig('right_sidebar')) : ?>
                 <aside class="control-sidebar control-sidebar-<?= $this->getConfig('right_sidebar_theme') ?>"></aside>
             <?php endif; ?>
@@ -51,7 +56,11 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                 </div>
                 <br/>
             </div>
-            <?= $this->partial(PartialOption::$footer) ?>
+            <div class="container">
+                <div class="content">
+                    <?= $this->partial(PartialOption::$footer) ?>
+                </div>
+            </div>
         </div>
         <?= $this->inlineScript() . "\n" ?>
     </body>

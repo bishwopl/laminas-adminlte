@@ -15,23 +15,26 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
         <?= $this->headLink() . "\n" ?>
         <?= $this->headScript() . "\n" ?>
     </head>
-    <body class="sidebar-mini layout-boxed <?= $this->getCssClass('body') ?>">
+    <body class="hold-transition <?= $this->getCssClass('body') ?> <?= $this->getCssClass('body_layout') ?>">
         <div class="wrapper">
             <?= $this->partial(PartialOption::$topNavigation, [
                     'showTopNavigation' => $this->getConfig('layout_topnav'),
-                    'showTopBrand' => false,
-                    'wrapInContainer' => true
+                    'showTopBrand' => $this->getConfig('layout_topnav'),
+                    'wrapInContainer' => $this->getConfig('layout_topnav')
                 ]) 
             ?>
             <?php if ($this->getConfig('right_sidebar')) : ?>
                 <aside class="control-sidebar control-sidebar-<?= $this->getConfig('right_sidebar_theme') ?>"></aside>
             <?php endif; ?>
-            <?= $this->partial(PartialOption::$sidebarMenu) ?>
+            <?php if ($this->getConfig('layout_fixed_sidebar')) : ?>
+                <?= $this->partial(PartialOption::$sidebarMenu) ?>
+            <?php endif; ?>
             <div class="content-wrapper <?= $this->getCssClass("content_wrapper") ?>">
                 <div class="content <?= $this->getCssClass("content") ?>">
-                    <div class="content-header <?= $this->getCssClass("content_header") ?>">
+                    <section class="content-header <?= $this->getCssClass("content_header") ?>">
                         <?php if ($this->getConfig('showBreadcrumb')): ?>
                             <div class="container">
+                                <?= $this->getCssClass('body') ?>
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
                                         <h4 class="m-0" id="pageTitleId">
@@ -50,21 +53,25 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                                 </div>
                             </div>
                         <?php endif; ?>
-                    </div>
-                    <div class="container <?= $this->getCssClass("content") ?>">
-                        <?= $this->content ?>
-                    </div>
+                    </section>
+                    <section class="content <?= $this->getCssClass("content") ?>">
+                        <div class="container<?= ($this->getConfig('layout_fixed_sidebar')?'-fluid':'') ?>">
+                            <?= $this->content ?>
+                        </div>
+                    </section>
                 </div>
                 <br/>
             </div>
             <?= $this->partial(PartialOption::$footer) ?>
         </div>
         <?= $this->inlineScript() . "\n" ?>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('.topnavigation').prepend('<li class="nav-item sidebar-toggle"><a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a></li>');
-            });
-        </script>
+        <?php if ($this->getConfig('layout_fixed_sidebar')) : ?>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('.topnavigation').prepend('<li class="nav-item sidebar-toggle"><a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a></li>');
+                });
+            </script>
+        <?php endif; ?>
     </body>
 </html>
 

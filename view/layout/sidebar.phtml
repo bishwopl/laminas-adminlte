@@ -3,9 +3,8 @@
 use LaminasAdminLTE\ThemeOptions\PartialOption;
 
 if ($this->pageTitle == NULL) {
-    $pageTitle = $this->getConfig('default_title');
+    $pageTitle = $this->getConfig('logo');
 }
-
 $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title_postfix');
 ?>
 <!DOCTYPE html>
@@ -16,59 +15,60 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
         <?= $this->headLink() . "\n" ?>
         <?= $this->headScript() . "\n" ?>
     </head>
-    <body class="hold-transition <?= $this->getCssClass('body') ?>">
+    <body class="hold-transition sidebar-mini layout-fixed <?= $this->getCssClass('body') ?>">
         <div class="wrapper">
-            <nav class="main-header navbar <?= $this->getCssClass('topnav') ?>">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link sidebar-toggle" data-widget="pushmenu" href="#">
-                            <i class="fas fa-bars"></i>
-                            <span class="sr-only">Toggle navigation</span>
-                        </a>
-                    </li>
-                    <?= $this->getConfig('showSearch') ? $this->partial(PartialOption::$searchForm) : '' ?>
-                </ul>
-                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                    <?= $this->getConfig('usermenu_enabled') ? '<li>' . $this->partial(PartialOption::$userInfoTopbar) . '</li>' : '' ?>
-                    <?= $this->getConfig('right_sidebar') ? '<li>' . $this->partial(PartialOption::$customizPanel) . '</li>' : '' ?>
-                </ul>
-            </nav>
+            <?= $this->partial(PartialOption::$topNavigation, [
+                    'showTopNavigation' => false,
+                    'showTopBrand' => false,
+                    'wrapInContainer' => false
+                
+                ]) 
+            ?>
             <?php if ($this->getConfig('right_sidebar')) : ?>
                 <aside class="control-sidebar control-sidebar-<?= $this->getConfig('right_sidebar_theme') ?>"></aside>
             <?php endif; ?>
             <?= $this->partial(PartialOption::$sidebarMenu) ?>
             <div class="content-wrapper <?= $this->getCssClass("content_wrapper") ?>">
-                <?php if ($this->getConfig('showBreadcrumb')): ?>
-                    <section class="content-header">
-                        <div class="container-fluid">
-                            <div class="row mb-2">
-                                <div class="col-sm-6">
-                                    <h4 class="m-0" id="pageTitleId">
-                                        <?= $this->pageTitle ?>
-                                    </h4>
-                                </div>
-                                <div class="col-sm-6">
-                                    <?=
-                                            $this->navigation('navigation')
-                                            ->breadcrumbs($this->getConfig('navigationKeyForBreadcrumb'))
-                                            ->setMinDepth(0)
-                                            ->setSeparator('>')
-                                            ->setPartial('partial/breadcrumb')
-                                    ?>
+                <div class="content <?= $this->getCssClass("content") ?>">
+                    <section class="content-header <?= $this->getCssClass("content_header") ?>">
+                        <?php if ($this->getConfig('showBreadcrumb')): ?>
+                            <div class="container">
+                                <?= $this->getCssClass('body') ?>
+                                <div class="row mb-2">
+                                    <div class="col-sm-6">
+                                        <h4 class="m-0" id="pageTitleId">
+                                            <?= $this->pageTitle ?>
+                                        </h4>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <?=
+                                                $this->navigation('navigation')
+                                                ->breadcrumbs($this->getConfig('navigationKeyForBreadcrumb'))
+                                                ->setMinDepth(0)
+                                                ->setSeparator('/')
+                                                ->setPartial(PartialOption::$breadcrumb)
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
+                        <?php endif; ?>
+                    </section>
+                    <section class="content <?= $this->getCssClass("content") ?>">
+                        <div class="container<?= ($this->getConfig('layout_fixed_sidebar')?'-fluid':'') ?>">
+                            <?= $this->content ?>
                         </div>
                     </section>
-                <?php endif; ?>
-                <section class="content <?= $this->getCssClass("content") ?>">
-                    <div class="container-fluid">
-                        <?= $this->content ?>
-                    </div>
-                </section>
+                </div>
+                <br/>
             </div>
             <?= $this->partial(PartialOption::$footer) ?>
         </div>
         <?= $this->inlineScript() . "\n" ?>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.topnavigation').prepend('<li class="nav-item sidebar-toggle"><a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a></li>');
+            });
+        </script>
     </body>
 </html>
 

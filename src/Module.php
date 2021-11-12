@@ -17,19 +17,23 @@ class Module implements ViewHelperProviderInterface {
     }
 
     public function onBootstrap(MvcEvent $event): void {
+        $roleService = null;
         $application = $event->getApplication();
         $moduleOptions = $application->getServiceManager()->get(ModuleOptions::class);
         
         /** @var TemplateMapResolver $templateMapResolver */
         $templateMapResolver = $application->getServiceManager()->get(
-                'ViewTemplateMapResolver'
+            'ViewTemplateMapResolver'
         );
 
-        $listenerLayout = new LayoutListener($templateMapResolver, $moduleOptions);
-        $listenerLayout->attach($application->getEventManager());
+        if($moduleOptions->role_wise_layouts['enabled'] == true){
+            $roleService = $application->getServiceManager()->get(
+                $moduleOptions->role_wise_layouts['role_service']
+            );
+        }
         
-        //$listenerCompress = new CompressOutputListener($moduleOptions);
-        //$listenerCompress->attach($application->getEventManager(),-999999);
+        $listenerLayout = new LayoutListener($templateMapResolver, $moduleOptions, $roleService);
+        $listenerLayout->attach($application->getEventManager());
     }
 
     public function getViewHelperConfig() {

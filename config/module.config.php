@@ -168,7 +168,7 @@ return [
          * application during execution such as different layout for different use roles
          */
         'layout_plugins' => [//plugins required for a specific layout
-            LayoutOption::$sidebar => [
+            LayoutOption::$default => [
                 PluginOption::$overlayScrollbars,
             ],
             LayoutOption::$topNavigation => [
@@ -382,8 +382,26 @@ return [
         'password_reset_url' => 'password/reset',
         'password_email_url' => 'password/email',
         'profile_url' => false,
+        
+        /*
+          |--------------------------------------------------------------------------
+          | Role wise layouts
+          |--------------------------------------------------------------------------
+          | These settings can be used to apply different layouts for user roles
+          | 'role_service'   -> service key for role management service
+          | 'method_to_call' -> it is used to get role name ofcurrently logged user 
+         */
+        'role_wise_layouts' => [
+            'enabled' => false,
+            'role_service' => '',
+            'method_to_call' => '',
+            'layouts' => [
+                //'admin' => LayoutOption::$topNavWithSidebar,
+                //'user' => LayoutOption::$topNavigation,
+                //'default' => LayoutOption::$topNavigation,
+            ],
+        ],
     ],
-    
     'router' => [
         'routes' => [
             'laminas-adminlte-examples' => [
@@ -401,45 +419,49 @@ return [
             ],
         ],
     ],
-    
     'view_manager' => [
         'template_map' => [
-            LayoutOption::$sidebar           => __DIR__ . '/../view/layout/sidebar.phtml',
-            LayoutOption::$boxed             => __DIR__ . '/../view/layout/boxed.phtml',
+            LayoutOption::$default => __DIR__ . '/../view/layout/default.phtml',
+            LayoutOption::$sidebar => __DIR__ . '/../view/layout/sidebar.phtml',
+            LayoutOption::$boxed => __DIR__ . '/../view/layout/boxed.phtml',
             LayoutOption::$topNavWithSidebar => __DIR__ . '/../view/layout/top-nav-with-sidebar.phtml',
-            LayoutOption::$topNavigation     => __DIR__ . '/../view/layout/top-navigation.phtml',
-            LayoutOption::$error404          => __DIR__ . '/../view/error/404.phtml',
-            LayoutOption::$errorIndex        => __DIR__ . '/../view/error/index.phtml',
-            PartialOption::$customizPanel    => __DIR__ . '/../view/__partial/customization-panel.phtml',
-            PartialOption::$breadcrumb       => __DIR__ . '/../view/__partial/navigation/breadcrumb.phtml',
-            PartialOption::$menuSide         => __DIR__ . '/../view/__partial/navigation/menu-side.phtml',
-            PartialOption::$menuSimple       => __DIR__ . '/../view/__partial/navigation/menu-simple.phtml',
-            PartialOption::$menuTop          => __DIR__ . '/../view/__partial/navigation/menu-top.phtml',
-            PartialOption::$menuItem         => __DIR__ . '/../view/__partial/navigation/menu-item.phtml',
-            PartialOption::$menuItemSide     => __DIR__ . '/../view/__partial/navigation/menu-item-side.phtml',
-            PartialOption::$menuItemTree     => __DIR__ . '/../view/__partial/navigation/menu-item-tree.phtml',
+            LayoutOption::$topNavigation => __DIR__ . '/../view/layout/top-navigation.phtml',
+            LayoutOption::$error404 => __DIR__ . '/../view/error/404.phtml',
+            LayoutOption::$errorIndex => __DIR__ . '/../view/error/index.phtml',
+            PartialOption::$customizPanel => __DIR__ . '/../view/__partial/customization-panel.phtml',
+            PartialOption::$breadcrumb => __DIR__ . '/../view/__partial/navigation/breadcrumb.phtml',
+            PartialOption::$menuSide => __DIR__ . '/../view/__partial/navigation/menu-side.phtml',
+            PartialOption::$menuSimple => __DIR__ . '/../view/__partial/navigation/menu-simple.phtml',
+            PartialOption::$menuTop => __DIR__ . '/../view/__partial/navigation/menu-top.phtml',
+            PartialOption::$menuItem => __DIR__ . '/../view/__partial/navigation/menu-item.phtml',
+            PartialOption::$menuItemSide => __DIR__ . '/../view/__partial/navigation/menu-item-side.phtml',
+            PartialOption::$menuItemTree => __DIR__ . '/../view/__partial/navigation/menu-item-tree.phtml',
             PartialOption::$menuItemTreeSide => __DIR__ . '/../view/__partial/navigation/menu-item-tree-side.phtml',
-            PartialOption::$searchForm       => __DIR__ . '/../view/__partial/search-form.phtml',
-            PartialOption::$footer           => __DIR__ . '/../view/__partial/footer.phtml',
-            PartialOption::$userInfoSidebar  => __DIR__ . '/../view/__partial/user-info-sidebar.phtml',
-            PartialOption::$userInfoTopbar   => __DIR__ . '/../view/__partial/user-info-topbar.phtml',
-            PartialOption::$sidebarMenu      => __DIR__ . '/../view/__partial/sidebar-menu.phtml',
-            PartialOption::$topNavigation    => __DIR__ . '/../view/__partial/top-navigation.phtml',
+            PartialOption::$searchForm => __DIR__ . '/../view/__partial/search-form.phtml',
+            PartialOption::$footer => __DIR__ . '/../view/__partial/footer.phtml',
+            PartialOption::$userInfoSidebar => __DIR__ . '/../view/__partial/user-info-sidebar.phtml',
+            PartialOption::$userInfoTopbar => __DIR__ . '/../view/__partial/user-info-topbar.phtml',
+            PartialOption::$sidebarMenu => __DIR__ . '/../view/__partial/sidebar-menu.phtml',
+            PartialOption::$topNavigation => __DIR__ . '/../view/__partial/top-navigation.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
         ],
     ],
-    
     'asset_manager' => [
         'resolver_configs' => [
             'paths' => [
                 $aLTEDirAssets,
                 __DIR__ . '/../public/'
             ],
+            'collections' => array(
+                'js/d.js' => array(
+                    'plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js',
+                    'plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js',
+                ),
+            ),
         ],
     ],
-    
     'navigation' => [
         'default' => [
         ],
@@ -506,6 +528,19 @@ return [
                         'params' => [
                             'layout_type' => str_replace('layout/', '', LayoutOption::$boxed)
                         ]
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'circlical' => [
+        'user' => [
+            'guards' => [
+                'laminas-adminlte' => [
+                    'controllers' => [
+                        ExamplesController::class => [
+                            'default' => [],
+                        ],
                     ],
                 ],
             ],
