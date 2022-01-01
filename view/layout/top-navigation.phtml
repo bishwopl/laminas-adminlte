@@ -17,7 +17,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
     </head>
     <body class="hold-transition sidebar-collapse layout-top-nav <?= $this->getCssClass('body') ?>">
         <div class="wrapper">
-            <?= $this->partial(PartialOption::$topNavigation, [
+            <?= $this->partial(PartialOption::topNavigation, [
                     'showTopNavigation' => true,
                     'showTopBrand' => true,
                     'wrapInContainer' => true
@@ -43,7 +43,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                                                 ->breadcrumbs($this->getConfig('navigationKeyForBreadcrumb'))
                                                 ->setMinDepth(0)
                                                 ->setSeparator('/')
-                                                ->setPartial(PartialOption::$breadcrumb)
+                                                ->setPartial(PartialOption::breadcrumb)
                                         ?>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
             </div>
             <div class="container">
                 <div class="content">
-                    <?= $this->partial(PartialOption::$footer) ?>
+                    <?= $this->partial(PartialOption::footer) ?>
                 </div>
             </div>
         </div>

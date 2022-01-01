@@ -27,15 +27,15 @@ use LaminasAdminLTE\ThemeOptions\PartialOption;
                     ->setMinDepth(0)
                     ->setMaxDepth(3)
                     ->setUlClass('navbar-nav topnavigation')
-                    ->setPartial(PartialOption::$menuTop);
+                    ->setPartial(PartialOption::menuTop);
                 ?>
             <?php else: ?>
                 <ul class="navbar-nav topnavigation" data-widget="treeview" role="menu" data-accordion="false"></ul>
             <?php endif; ?>
-            <?= $this->getConfig('showSearch') ? $this->partial(PartialOption::$searchForm) : '' ?>
+            <?= $this->getConfig('showSearch') ? $this->partial(PartialOption::searchForm) : '' ?>
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                <?= $this->getConfig('usermenu_enabled') ? '<li>' . $this->partial(PartialOption::$userInfoTopbar) . '</li>' : '' ?>
-                <?= $this->getConfig('right_sidebar') ? '<li>' . $this->partial(PartialOption::$customizPanel) . '</li>' : '' ?>
+                <?= $this->getConfig('usermenu_enabled') ? '<li>' . $this->partial(PartialOption::userInfoTopbar) . '</li>' : '' ?>
+                <?= $this->getConfig('right_sidebar') ? '<li>' . $this->partial(PartialOption::customizPanel) . '</li>' : '' ?>
             </ul>
         </div>
     <?php if($this->wrapInContainer) : ?>

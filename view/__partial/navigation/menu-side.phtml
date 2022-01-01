@@ -15,14 +15,14 @@ $maxDepth = $this->navigation($container)->menu()->getMaxDepth();
         $isActive = $page->isActive();
         $hasChildren = $page->hasPages();
         if ($hasChildren) {
-            echo $this->partial(PartialOption::$menuItemTreeSide, [
+            echo $this->partial(PartialOption::menuItemTreeSide, [
                 'page' => $page,
                 'maxDepth' => $maxDepth,
                 'class' => 'nav-item dropdown',
                 'menuLocation' => 'side'
             ]);
         } else {
-            echo $this->partial(PartialOption::$menuItemSide, ['page' => $page]);
+            echo $this->partial(PartialOption::menuItemSide, ['page' => $page]);
         }
     }
     ?>

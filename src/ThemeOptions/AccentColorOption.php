@@ -4,21 +4,22 @@ namespace LaminasAdminLTE\ThemeOptions;
 
 class AccentColorOption {
 
-    public static $accentPrimary   = 'accent-primary';
-    public static $accentWarning   = 'accent-warning';
-    public static $accentInfo      = 'accent-info';
-    public static $accentDanger    = 'accent-danger';
-    public static $accentSuccess   = 'accent-success';
-    public static $accentIndigo    = 'accent-indigo';
-    public static $accentLightblue = 'accent-lightblue';
-    public static $accentNavy      = 'accent-navy';
-    public static $accentPurple    = 'accent-purple';
-    public static $accentFuchsia   = 'accent-fuchsia';
-    public static $accentPink      = 'accent-pink';
-    public static $accentMaroon    = 'accent-maroon';
-    public static $accentOrange    = 'accent-orange';
-    public static $accentLime      = 'accent-lime';
-    public static $accentTeal      = 'accent-teal';
-    public static $accentOlive     = 'accent-olive';
+    public const accentPrimary   = 'accent-primary';
+    public const accentWarning   = 'accent-warning';
+    public const accentInfo      = 'accent-info';
+    public const accentDanger    = 'accent-danger';
+    public const accentSuccess   = 'accent-success';
+    public const accentIndigo    = 'accent-indigo';
+    public const accentLightblue = 'accent-lightblue';
+    public const accentNavy      = 'accent-navy';
+    public const accentPurple    = 'accent-purple';
+    public const accentFuchsia   = 'accent-fuchsia';
+    public const accentPink      = 'accent-pink';
+    public const accentMaroon    = 'accent-maroon';
+    public const accentOrange    = 'accent-orange';
+    public const accentLime      = 'accent-lime';
+    public const accentTeal      = 'accent-teal';
+    public const accentOlive     = 'accent-olive';
+    public const accentGrayDark  = 'accent-gray-dark';
 
 }

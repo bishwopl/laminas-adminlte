@@ -17,8 +17,8 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
     </head>
     <body class="sidebar-mini layout-boxed <?= $this->getCssClass('body') ?>">
         <div class="wrapper">
-            <?= $this->partial(PartialOption::$topNavigation, [
-                    'showTopNavigation' => $this->getConfig('layout_topnav'),
+            <?= $this->partial(PartialOption::topNavigation, [
+                    'showTopNavigation' => true,
                     'showTopBrand' => false,
                     'wrapInContainer' => true
                 ]) 
@@ -26,7 +26,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
             <?php if ($this->getConfig('right_sidebar')) : ?>
                 <aside class="control-sidebar control-sidebar-<?= $this->getConfig('right_sidebar_theme') ?>"></aside>
             <?php endif; ?>
-            <?= $this->partial(PartialOption::$sidebarMenu) ?>
+            <?= $this->partial(PartialOption::sidebarMenu) ?>
             <div class="content-wrapper <?= $this->getCssClass("content_wrapper") ?>">
                 <div class="content <?= $this->getCssClass("content") ?>">
                     <div class="content-header <?= $this->getCssClass("content_header") ?>">
@@ -44,7 +44,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                                                 ->breadcrumbs($this->getConfig('navigationKeyForBreadcrumb'))
                                                 ->setMinDepth(0)
                                                 ->setSeparator('/')
-                                                ->setPartial(PartialOption::$breadcrumb)
+                                                ->setPartial(PartialOption::breadcrumb)
                                         ?>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                 </div>
                 <br/>
             </div>
-            <?= $this->partial(PartialOption::$footer) ?>
+            <?= $this->partial(PartialOption::footer) ?>
         </div>
         <?= $this->inlineScript() . "\n" ?>
         <script type="text/javascript">

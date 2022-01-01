@@ -53,7 +53,7 @@ $config = [
           | Here you can activate and change the user menu.
          */
         'usermenu_enabled' => true,
-        'usermenu_header_class' => ColorOption::$bgLightblue,
+        'usermenu_header_class' => ColorOption::bgLightblue,
         'usermenu_profile_route' => NULL,
         'usermenu_logout_route' => NULL,
         
@@ -163,7 +163,7 @@ $config = [
          * To change default scripts and styles used the format described above
          */
         'plugins' => [
-            \LaminasAdminLTE\ThemeOptions\PluginOption::$datatables => [
+            \LaminasAdminLTE\ThemeOptions\PluginOption::datatables => [
                 'active' => true
             ],
         ],
@@ -184,21 +184,21 @@ $config = [
          * If your custom layout requires a specific plugin then you can either
          * enable the plugin after changing layout or
          * use this option. This method is useful if layout is changed by the 
-         * application during execution such as different layout for different use roles
+         * application during execution such as different layout for different user roles
          */
         'layout_plugins' => [//plugins required for a specific layout
-            LayoutOption::$sidebar => [
-                PluginOption::$overlayScrollbars,
+            LayoutOption::sidebar => [
+                PluginOption::overlayScrollbars,
             ],
-            LayoutOption::$topNavigation => [
-                PluginOption::$overlayScrollbars,
+            LayoutOption::topNavigation => [
+                PluginOption::overlayScrollbars,
             ],
         ],
     ],
 ];
 
 $skin = [
-    'laminas_adminlte' => \LaminasAdminLTE\Config\LayoutConfig::getDarkLightblueConfig()
+    'laminas_adminlte' => \LaminasAdminLTE\Config\LayoutConfig::darkTealSkin
 ];
 
 $configAggregator = new ConfigAggregator([new ArrayProvider($config), new ArrayProvider($skin)]);

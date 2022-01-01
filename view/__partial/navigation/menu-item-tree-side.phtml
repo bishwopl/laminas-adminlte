@@ -26,13 +26,13 @@ foreach ($childPagesCheck as $cPage) {
         foreach ($childPages as $cPage) {
             $iconCpage = $cPage->showIcon == true ? $cPage->icon : false;
             if ($cPage->hasPages() && --$maxDepth > 0) {
-                echo $this->partial(PartialOption::$menuItemTree, [
+                echo $this->partial(PartialOption::menuItemTree, [
                     'page' => $cPage,
                     'maxDepth' => $maxDepth,
                     'class' => 'dropdown-submenu dropdown-hover'
                 ]);
             } else {
-                echo $this->partial(PartialOption::$menuItemSide, [
+                echo $this->partial(PartialOption::menuItemSide, [
                     'page' => $cPage,
                 ]);
             }

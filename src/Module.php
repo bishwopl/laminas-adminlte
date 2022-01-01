@@ -34,6 +34,9 @@ class Module implements ViewHelperProviderInterface {
         
         $listenerLayout = new LayoutListener($templateMapResolver, $moduleOptions, $roleService);
         $listenerLayout->attach($application->getEventManager());
+        
+        //$compressor = new CompressOutputListener($moduleOptions);
+        //$compressor->attach($application->getEventManager());
     }
 
     public function getViewHelperConfig() {

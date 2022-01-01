@@ -3,12 +3,12 @@
 namespace LaminasAdminLTE\ThemeOptions;
 
 class LayoutOption {
-    public static $sidebar           = 'layout/sidebar';
-    public static $boxed             = 'layout/boxed';
-    public static $default           = 'layout/default';
-    public static $topNavigation     = 'layout/top-navigation';
-    public static $topNavWithSidebar = 'layout/top-nav-with-sidebar';
-    public static $error404          = 'error/404';
-    public static $errorIndex        = 'error/index';
+    public const sidebar           = 'layout/sidebar';
+    public const boxed             = 'layout/boxed';
+    public const default           = 'layout/default';
+    public const topNavigation     = 'layout/top-navigation';
+    public const topNavWithSidebar = 'layout/top-nav-with-sidebar';
+    public const error404          = 'error/404';
+    public const errorIndex        = 'error/index';
 
 }

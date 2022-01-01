@@ -67,7 +67,7 @@ class LayoutListener extends AbstractListenerAggregate {
         /*
          * Set default layout
          */
-        $layout = LayoutOption::$default;
+        $layout = LayoutOption::default;
         
         /*
          * If layout is set by controller ar a specific module

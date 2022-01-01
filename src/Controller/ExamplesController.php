@@ -25,23 +25,23 @@ class ExamplesController extends AbstractActionController {
         $layoutType = $this->params()->fromRoute('layout_type');
         switch ($layoutType){
             case  'top-navigation' :
-                $this->layout()->setTemplate(LayoutOption::$topNavigation);
+                $this->layout()->setTemplate(LayoutOption::topNavigation);
                 $vm->setOption('lockLayout', true);
                 break;
             case 'boxed' :
-                $this->layout()->setTemplate(LayoutOption::$boxed);
+                $this->layout()->setTemplate(LayoutOption::boxed);
                 $vm->setOption('lockLayout', true);
                 break;
             case 'sidebar' :
-                $this->layout()->setTemplate(LayoutOption::$sidebar);
+                $this->layout()->setTemplate(LayoutOption::sidebar);
                 $vm->setOption('lockLayout', true);
                 break;
             case 'top-nav-with-sidebar' :
-                $this->layout()->setTemplate(LayoutOption::$topNavWithSidebar);
+                $this->layout()->setTemplate(LayoutOption::topNavWithSidebar);
                 $vm->setOption('lockLayout', true);
                 break;
             case true:
-                $this->layout()->setTemplate(LayoutOption::$default);
+                $this->layout()->setTemplate(LayoutOption::default);
         }
         return $vm;
     }

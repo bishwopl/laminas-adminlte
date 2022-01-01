@@ -16,13 +16,13 @@ $maxDepth = $this->navigation($container)->menu()->getMaxDepth();
         $isActive = $page->isActive();
         $hasChildren = $page->hasPages();
         if ($hasChildren) {
-            echo $this->partial(PartialOption::$menuItemTree, [
+            echo $this->partial(PartialOption::menuItemTree, [
                 'page' => $page,
                 'maxDepth' => $maxDepth,
                 'class' => 'nav-item dropdown'
             ]);
         } else {
-            echo $this->partial(PartialOption::$menuItem, [
+            echo $this->partial(PartialOption::menuItem, [
                 'page' => $page,
                 'class' => 'nav-link'
                 ]);

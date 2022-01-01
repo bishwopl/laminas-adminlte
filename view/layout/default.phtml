@@ -17,8 +17,8 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
     </head>
     <body class="hold-transition <?= $this->getCssClass('body') ?> <?= $this->getCssClass('body_layout') ?>">
         <div class="wrapper">
-            <?= $this->partial(PartialOption::$topNavigation, [
-                    'showTopNavigation' => $this->getConfig('layout_topnav'),
+            <?= $this->partial(PartialOption::topNavigation, [
+                    'showTopNavigation' => true,
                     'showTopBrand' => $this->getConfig('layout_topnav'),
                     'wrapInContainer' => $this->getConfig('layout_topnav')
                 ]) 
@@ -27,7 +27,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                 <aside class="control-sidebar control-sidebar-<?= $this->getConfig('right_sidebar_theme') ?>"></aside>
             <?php endif; ?>
             <?php if ($this->getConfig('layout_fixed_sidebar')) : ?>
-                <?= $this->partial(PartialOption::$sidebarMenu) ?>
+                <?= $this->partial(PartialOption::sidebarMenu) ?>
             <?php endif; ?>
             <div class="content-wrapper <?= $this->getCssClass("content_wrapper") ?>">
                 <div class="content <?= $this->getCssClass("content") ?>">
@@ -47,7 +47,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                                                 ->breadcrumbs($this->getConfig('navigationKeyForBreadcrumb'))
                                                 ->setMinDepth(0)
                                                 ->setSeparator('/')
-                                                ->setPartial(PartialOption::$breadcrumb)
+                                                ->setPartial(PartialOption::breadcrumb)
                                         ?>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                 </div>
                 <br/>
             </div>
-            <?= $this->partial(PartialOption::$footer) ?>
+            <?= $this->partial(PartialOption::footer) ?>
         </div>
         <?= $this->inlineScript() . "\n" ?>
         <?php if ($this->getConfig('layout_fixed_sidebar')) : ?>

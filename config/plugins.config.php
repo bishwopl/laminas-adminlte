@@ -3,7 +3,7 @@
 use LaminasAdminLTE\ThemeOptions\PluginOption;
 
 return [
-    PluginOption::$bootstrapColorpicker => [
+    PluginOption::bootstrapColorpicker => [
         'active' => false,
         'files' => [
             [
@@ -19,7 +19,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$bootstrapSlider => [
+    PluginOption::bootstrapSlider => [
         'active' => false,
         'files' => [
             [
@@ -35,7 +35,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$bootstrapSwitch => [
+    PluginOption::bootstrapSwitch => [
         'active' => false,
         'files' => [
             [
@@ -51,7 +51,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$bootstrap4Duallistbox => [
+    PluginOption::bootstrap4Duallistbox => [
         'active' => false,
         'files' => [
             [
@@ -67,7 +67,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$bsCustomFileInput => [
+    PluginOption::bsCustomFileInput => [
         'active' => false,
         'files' => [
             [
@@ -78,7 +78,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$chartJs => [
+    PluginOption::chartJs => [
         'active' => false,
         'files' => [
             [
@@ -94,7 +94,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatables => [
+    PluginOption::datatables => [
         'active' => false,
         'files' => [
             [
@@ -116,7 +116,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesAutofill => [
+    PluginOption::datatablesAutofill => [
         'active' => false,
         'files' => [
             [
@@ -132,7 +132,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesBs4 => [
+    PluginOption::datatablesBs4 => [
         'active' => false,
         'files' => [
             [
@@ -148,7 +148,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesButtons => [
+    PluginOption::datatablesButtons => [
         'active' => false,
         'files' => [
             [
@@ -188,7 +188,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesColreorder => [
+    PluginOption::datatablesColreorder => [
         'active' => false,
         'files' => [
             [
@@ -210,7 +210,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesFixedcolumns => [
+    PluginOption::datatablesFixedcolumns => [
         'active' => false,
         'files' => [
             [
@@ -232,7 +232,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesFixedheader => [
+    PluginOption::datatablesFixedheader => [
         'active' => false,
         'files' => [
             [
@@ -254,7 +254,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesKeytable => [
+    PluginOption::datatablesKeytable => [
         'active' => false,
         'files' => [
             [
@@ -276,7 +276,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesResponsive => [
+    PluginOption::datatablesResponsive => [
         'active' => false,
         'files' => [
             [
@@ -298,7 +298,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesRowgroup => [
+    PluginOption::datatablesRowgroup => [
         'active' => false,
         'files' => [
             [
@@ -320,7 +320,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesRowreorder => [
+    PluginOption::datatablesRowreorder => [
         'active' => false,
         'files' => [
             [
@@ -342,7 +342,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesScroller => [
+    PluginOption::datatablesScroller => [
         'active' => false,
         'files' => [
             [
@@ -364,7 +364,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$datatablesSelect => [
+    PluginOption::datatablesSelect => [
         'active' => false,
         'files' => [
             [
@@ -386,7 +386,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$daterangepicker => [
+    PluginOption::daterangepicker => [
         'active' => false,
         'files' => [
             [
@@ -402,7 +402,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$ekkoLightbox => [
+    PluginOption::ekkoLightbox => [
         'active' => false,
         'files' => [
             [
@@ -418,7 +418,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$fastclick => [
+    PluginOption::fastclick => [
         'active' => false,
         'files' => [
             [
@@ -429,7 +429,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$filterizr => [
+    PluginOption::filterizr => [
         'active' => false,
         'files' => [
             [
@@ -440,7 +440,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$flagIconCss => [
+    PluginOption::flagIconCss => [
         'active' => false,
         'files' => [
             [
@@ -450,7 +450,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$flot => [
+    PluginOption::flot => [
         'active' => false,
         'files' => [
             [
@@ -461,7 +461,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$flotOld => [
+    PluginOption::flotOld => [
         'active' => false,
         'files' => [
             [
@@ -472,7 +472,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$fontawesomeFree => [
+    PluginOption::fontawesomeFree => [
         'active' => false,
         'files' => [
             [
@@ -482,7 +482,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$fullcalendar => [
+    PluginOption::fullcalendar => [
         'active' => false,
         'files' => [
             [
@@ -498,7 +498,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$fullcalendarBootstrap => [
+    PluginOption::fullcalendarBootstrap => [
         'active' => false,
         'files' => [
             [
@@ -514,7 +514,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$fullcalendarDaygrid => [
+    PluginOption::fullcalendarDaygrid => [
         'active' => false,
         'files' => [
             [
@@ -530,7 +530,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$fullcalendarInteraction => [
+    PluginOption::fullcalendarInteraction => [
         'active' => false,
         'files' => [
             [
@@ -541,7 +541,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$fullcalendarTimegrid => [
+    PluginOption::fullcalendarTimegrid => [
         'active' => false,
         'files' => [
             [
@@ -557,7 +557,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$icheckBootstrap => [
+    PluginOption::icheckBootstrap => [
         'active' => false,
         'files' => [
             [
@@ -567,7 +567,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$inputmask => [
+    PluginOption::inputmask => [
         'active' => false,
         'files' => [
             [
@@ -578,7 +578,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$ionRangeslider => [
+    PluginOption::ionRangeslider => [
         'active' => false,
         'files' => [
             [
@@ -594,7 +594,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jquery => [
+    PluginOption::jquery => [
         'active' => false,
         'files' => [
             [
@@ -605,7 +605,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jquerySlim => [
+    PluginOption::jquerySlim => [
         'active' => false,
         'files' => [
             [
@@ -616,7 +616,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jqueryKnob => [
+    PluginOption::jqueryKnob => [
         'active' => false,
         'files' => [
             [
@@ -627,7 +627,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jqueryMapael => [
+    PluginOption::jqueryMapael => [
         'active' => false,
         'files' => [
             [
@@ -638,7 +638,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jqueryMousewheel => [
+    PluginOption::jqueryMousewheel => [
         'active' => false,
         'files' => [
             [
@@ -649,7 +649,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jqueryUi => [
+    PluginOption::jqueryUi => [
         'active' => false,
         'files' => [
             [
@@ -670,7 +670,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jqueryValidation => [
+    PluginOption::jqueryValidation => [
         'active' => false,
         'files' => [
             [
@@ -687,7 +687,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jqvmap => [
+    PluginOption::jqvmap => [
         'active' => false,
         'files' => [
             [
@@ -703,7 +703,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jsgrid => [
+    PluginOption::jsgrid => [
         'active' => false,
         'files' => [
             [
@@ -724,7 +724,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$jszip => [
+    PluginOption::jszip => [
         'active' => false,
         'files' => [
             [
@@ -735,7 +735,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$moment => [
+    PluginOption::moment => [
         'active' => false,
         'files' => [
             [
@@ -746,7 +746,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$overlayScrollbars => [
+    PluginOption::overlayScrollbars => [
         'active' => true,
         'files' => [
             [
@@ -762,7 +762,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$paceProgress => [
+    PluginOption::paceProgress => [
         'active' => false,
         'files' => [
             [
@@ -773,7 +773,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$pdfmake => [
+    PluginOption::pdfmake => [
         'active' => false,
         'files' => [
             [
@@ -784,7 +784,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$popper => [
+    PluginOption::popper => [
         'active' => false,
         'files' => [
             [
@@ -801,7 +801,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$raphael => [
+    PluginOption::raphael => [
         'active' => false,
         'files' => [
             [
@@ -812,7 +812,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$select2 => [
+    PluginOption::select2 => [
         'active' => false,
         'files' => [
             [
@@ -828,7 +828,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$select2Bootstrap4Theme => [
+    PluginOption::select2Bootstrap4Theme => [
         'active' => false,
         'files' => [
             [
@@ -838,7 +838,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$sparklines => [
+    PluginOption::sparklines => [
         'active' => false,
         'files' => [
             [
@@ -849,7 +849,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$summernote => [
+    PluginOption::summernote => [
         'active' => false,
         'files' => [
             [
@@ -865,7 +865,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$sweetalert2 => [
+    PluginOption::sweetalert2 => [
         'active' => false,
         'files' => [
             [
@@ -881,7 +881,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$sweetalert2ThemeBootstrap4 => [
+    PluginOption::sweetalert2ThemeBootstrap4 => [
         'active' => false,
         'files' => [
             [
@@ -891,7 +891,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$tempusdominusBootstrap4 => [
+    PluginOption::tempusdominusBootstrap4 => [
         'active' => false,
         'files' => [
             [
@@ -907,7 +907,7 @@ return [
             ],
         ],
     ],
-    PluginOption::$toastr => [
+    PluginOption::toastr => [
         'active' => false,
         'files' => [
             [

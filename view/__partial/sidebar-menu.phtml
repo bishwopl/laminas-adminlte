@@ -14,15 +14,15 @@ use LaminasAdminLTE\ThemeOptions\PartialOption;
         </span>
     </a>
     <div class="sidebar">
-        <?= $this->partial(PartialOption::$userInfoSidebar) ?>
+        <?= $this->partial(PartialOption::userInfoSidebar) ?>
         <nav class="mt-2">
             <?=
                     $this->navigation('navigation')
-                    ->menu($this->getConfig('topNavigationKey'))
+                    ->menu($this->getConfig('sidebarNavigationKey'))
                     ->setMinDepth(0)
                     ->setMaxDepth(3)
                     ->setUlClass('nav nav-pills nav-sidebar flex-column')
-                    ->setPartial(PartialOption::$menuSide)
+                    ->setPartial(PartialOption::menuSide)
             ?>
         </nav>
     </div>

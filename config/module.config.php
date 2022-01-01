@@ -18,7 +18,7 @@ use LaminasAdminLTE\ThemeOptions\SidebarSkinOption;
 use LaminasAdminLTE\Service\CustomNavigation;
 use LaminasAdminLTE\Service\CustomNavigationFactory;
 
-$aLTEDirAssets = __DIR__ . '/../../../almasaeed2010/adminlte';
+$aLTEDirAssets = __DIR__ . '/../../../../vendor/almasaeed2010/adminlte';
 
 return [
     'controllers' => [
@@ -168,11 +168,11 @@ return [
          * application during execution such as different layout for different use roles
          */
         'layout_plugins' => [//plugins required for a specific layout
-            LayoutOption::$default => [
-                PluginOption::$overlayScrollbars,
+            LayoutOption::default => [
+                PluginOption::overlayScrollbars,
             ],
-            LayoutOption::$topNavigation => [
-                PluginOption::$overlayScrollbars,
+            LayoutOption::topNavigation => [
+                PluginOption::overlayScrollbars,
             ],
         ],
         
@@ -301,7 +301,7 @@ return [
           | Here you can activate and change the user menu.
          */
         'usermenu_enabled' => true,
-        'usermenu_header_class' => ColorOption::$bgLightblue,
+        'usermenu_header_class' => ColorOption::bgLightblue,
         'usermenu_profile_route' => NULL,
         'usermenu_logout_route' => NULL,
         
@@ -396,9 +396,9 @@ return [
             'role_service' => '',
             'method_to_call' => '',
             'layouts' => [
-                //'admin' => LayoutOption::$topNavWithSidebar,
-                //'user' => LayoutOption::$topNavigation,
-                //'default' => LayoutOption::$topNavigation,
+                //'admin' => LayoutOption::topNavWithSidebar,
+                //'user' => LayoutOption::topNavigation,
+                //'default' => LayoutOption::topNavigation,
             ],
         ],
     ],
@@ -421,28 +421,28 @@ return [
     ],
     'view_manager' => [
         'template_map' => [
-            LayoutOption::$default => __DIR__ . '/../view/layout/default.phtml',
-            LayoutOption::$sidebar => __DIR__ . '/../view/layout/sidebar.phtml',
-            LayoutOption::$boxed => __DIR__ . '/../view/layout/boxed.phtml',
-            LayoutOption::$topNavWithSidebar => __DIR__ . '/../view/layout/top-nav-with-sidebar.phtml',
-            LayoutOption::$topNavigation => __DIR__ . '/../view/layout/top-navigation.phtml',
-            LayoutOption::$error404 => __DIR__ . '/../view/error/404.phtml',
-            LayoutOption::$errorIndex => __DIR__ . '/../view/error/index.phtml',
-            PartialOption::$customizPanel => __DIR__ . '/../view/__partial/customization-panel.phtml',
-            PartialOption::$breadcrumb => __DIR__ . '/../view/__partial/navigation/breadcrumb.phtml',
-            PartialOption::$menuSide => __DIR__ . '/../view/__partial/navigation/menu-side.phtml',
-            PartialOption::$menuSimple => __DIR__ . '/../view/__partial/navigation/menu-simple.phtml',
-            PartialOption::$menuTop => __DIR__ . '/../view/__partial/navigation/menu-top.phtml',
-            PartialOption::$menuItem => __DIR__ . '/../view/__partial/navigation/menu-item.phtml',
-            PartialOption::$menuItemSide => __DIR__ . '/../view/__partial/navigation/menu-item-side.phtml',
-            PartialOption::$menuItemTree => __DIR__ . '/../view/__partial/navigation/menu-item-tree.phtml',
-            PartialOption::$menuItemTreeSide => __DIR__ . '/../view/__partial/navigation/menu-item-tree-side.phtml',
-            PartialOption::$searchForm => __DIR__ . '/../view/__partial/search-form.phtml',
-            PartialOption::$footer => __DIR__ . '/../view/__partial/footer.phtml',
-            PartialOption::$userInfoSidebar => __DIR__ . '/../view/__partial/user-info-sidebar.phtml',
-            PartialOption::$userInfoTopbar => __DIR__ . '/../view/__partial/user-info-topbar.phtml',
-            PartialOption::$sidebarMenu => __DIR__ . '/../view/__partial/sidebar-menu.phtml',
-            PartialOption::$topNavigation => __DIR__ . '/../view/__partial/top-navigation.phtml',
+            LayoutOption::default => __DIR__ . '/../view/layout/default.phtml',
+            LayoutOption::sidebar => __DIR__ . '/../view/layout/sidebar.phtml',
+            LayoutOption::boxed => __DIR__ . '/../view/layout/boxed.phtml',
+            LayoutOption::topNavWithSidebar => __DIR__ . '/../view/layout/top-nav-with-sidebar.phtml',
+            LayoutOption::topNavigation => __DIR__ . '/../view/layout/top-navigation.phtml',
+            LayoutOption::error404 => __DIR__ . '/../view/error/404.phtml',
+            LayoutOption::errorIndex => __DIR__ . '/../view/error/index.phtml',
+            PartialOption::customizPanel => __DIR__ . '/../view/__partial/customization-panel.phtml',
+            PartialOption::breadcrumb => __DIR__ . '/../view/__partial/navigation/breadcrumb.phtml',
+            PartialOption::menuSide => __DIR__ . '/../view/__partial/navigation/menu-side.phtml',
+            PartialOption::menuSimple => __DIR__ . '/../view/__partial/navigation/menu-simple.phtml',
+            PartialOption::menuTop => __DIR__ . '/../view/__partial/navigation/menu-top.phtml',
+            PartialOption::menuItem => __DIR__ . '/../view/__partial/navigation/menu-item.phtml',
+            PartialOption::menuItemSide => __DIR__ . '/../view/__partial/navigation/menu-item-side.phtml',
+            PartialOption::menuItemTree => __DIR__ . '/../view/__partial/navigation/menu-item-tree.phtml',
+            PartialOption::menuItemTreeSide => __DIR__ . '/../view/__partial/navigation/menu-item-tree-side.phtml',
+            PartialOption::searchForm => __DIR__ . '/../view/__partial/search-form.phtml',
+            PartialOption::footer => __DIR__ . '/../view/__partial/footer.phtml',
+            PartialOption::userInfoSidebar => __DIR__ . '/../view/__partial/user-info-sidebar.phtml',
+            PartialOption::userInfoTopbar => __DIR__ . '/../view/__partial/user-info-topbar.phtml',
+            PartialOption::sidebarMenu => __DIR__ . '/../view/__partial/sidebar-menu.phtml',
+            PartialOption::topNavigation => __DIR__ . '/../view/__partial/top-navigation.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
@@ -494,7 +494,7 @@ return [
                         'showIconInBreadcrumb' => false,
                         'icon' => 'far fa-circle nav-icon',
                         'params' => [
-                            'layout_type' => str_replace('layout/', '', LayoutOption::$sidebar)
+                            'layout_type' => str_replace('layout/', '', LayoutOption::sidebar)
                         ],
                         'labelRight' => 4,
                         'labelColor' => 'danger',
@@ -506,7 +506,7 @@ return [
                         'showIconInBreadcrumb' => false,
                         'icon' => 'far fa-circle nav-icon',
                         'params' => [
-                            'layout_type' => str_replace('layout/', '', LayoutOption::$topNavigation)
+                            'layout_type' => str_replace('layout/', '', LayoutOption::topNavigation)
                         ]
                     ],
                     [
@@ -516,7 +516,7 @@ return [
                         'showIconInBreadcrumb' => false,
                         'icon' => 'far fa-circle nav-icon',
                         'params' => [
-                            'layout_type' => str_replace('layout/', '', LayoutOption::$topNavWithSidebar)
+                            'layout_type' => str_replace('layout/', '', LayoutOption::topNavWithSidebar)
                         ]
                     ],
                     [
@@ -526,7 +526,7 @@ return [
                         'showIconInBreadcrumb' => false,
                         'icon' => 'far fa-circle nav-icon',
                         'params' => [
-                            'layout_type' => str_replace('layout/', '', LayoutOption::$boxed)
+                            'layout_type' => str_replace('layout/', '', LayoutOption::boxed)
                         ]
                     ],
                 ],
