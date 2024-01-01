@@ -4,7 +4,7 @@ namespace LaminasAdminLTE\ThemeOptions;
 
 class AccentColorOption {
 
-    public const accentPrimary   = 'accent-primary';
+    public const accentPrimary   = 'accent-primary text-sm';
     public const accentWarning   = 'accent-warning';
     public const accentInfo      = 'accent-info';
     public const accentDanger    = 'accent-danger';

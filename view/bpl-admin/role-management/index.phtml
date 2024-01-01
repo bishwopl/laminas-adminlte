@@ -1,0 +1,56 @@
+<?php
+$sn = $this->startIndex + 1;
+?>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><strong>Role Management</strong></h3>
+    </div>
+    <div class="card-body">
+        <p>
+            <a class="btn btn-success btn-sm" href="<?= $this->url('bpl-admin/role-management', ['action' => 'add']) ?>">
+                Add New Role
+            </a>
+            <a class="btn btn-primary btn-sm" href="<?= $this->url('bpl-admin') ?>">
+                Go to Admin Page
+            </a>
+        </p>
+        <table class="table table-bordered table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>Role Name</th>
+                    <th>Parent</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->roles as $role): ?>
+                    <tr>
+                        <td><?= $sn++ ?></td>
+                        <td><?= $role->getName() ?></td>
+                        <td><?= ($role->getParent() !== NULL) ? $role->getParent()->getname() : '' ?></td>
+                        <td>
+                            <a class="btn btn-xs btn-info text-light" href="<?= $this->url('bpl-admin/role-management', ['action' => 'edit', 'id' => $role->getId()]) ?>">Edit</a>
+                            <a class="btn btn-xs btn-danger" href="<?= $this->url('bpl-admin/role-management', ['action' => 'delete', 'id' => $role->getId()]) ?>">Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <?=
+        $this->partial(
+                'bpl-admin/pagination',
+                [
+                    'currentPage' => $this->currentPage,
+                    'noOfPages' => $this->noOfPages,
+                    'totalRecordCount' => $this->totalRecordCount,
+                    'pageRoute' => 'bpl-admin/role-management',
+                    'action' => 'index',
+                    'pageKeyInRoute' => 'id'
+                ]
+        )
+        ?>
+
+    </div>
+</div>
+

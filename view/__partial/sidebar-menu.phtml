@@ -20,8 +20,8 @@ use LaminasAdminLTE\ThemeOptions\PartialOption;
                     $this->navigation('navigation')
                     ->menu($this->getConfig('sidebarNavigationKey'))
                     ->setMinDepth(0)
-                    ->setMaxDepth(3)
-                    ->setUlClass('nav nav-pills nav-sidebar flex-column')
+                    ->setMaxDepth(1)
+                    ->setUlClass('nav nav-sidebar nav-flat nav-child-indent flex-column')
                     ->setPartial(PartialOption::menuSide)
             ?>
         </nav>

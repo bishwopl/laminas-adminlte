@@ -6,7 +6,7 @@ $icon = $page->showIcon == true ? $page->icon : false;
 if ($page->header == true) {
     ?>
     <li class="nav-header">
-        <?= $page->getLabel() ?>
+        <strong><?= $page->getLabel() ?></strong>
     </li>
 <?php } else { ?>
     <li class="nav-item">
@@ -14,7 +14,7 @@ if ($page->header == true) {
             <?= $icon !== false ? '<i class="nav-icon ' . $icon . '"></i>' : '' ?>
             <p>
                 <?= $page->getLabel() ?>
-                <?php if (trim($page->labelRight) !== "") { ?>
+                <?php if (!is_null($page->labelRight) && trim($page->labelRight) !== "") { ?>
                     <span class="badge badge-<?= $page->labelColor ?> right">
                         <?= $page->labelRight ?>
                     </span>

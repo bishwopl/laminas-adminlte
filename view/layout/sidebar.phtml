@@ -4,6 +4,7 @@ use LaminasAdminLTE\ThemeOptions\PartialOption;
 
 if ($this->pageTitle == NULL) {
     $pageTitle = $this->getConfig('logo');
+    $pageTitle = '';
 }
 $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title_postfix');
 ?>
@@ -33,12 +34,11 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
                     <section class="content-header <?= $this->getCssClass("content_header") ?>">
                         <?php if ($this->getConfig('showBreadcrumb')): ?>
                             <div class="container">
-                                <?= $this->getCssClass('body') ?>
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <h4 class="m-0" id="pageTitleId">
-                                            <?= $this->pageTitle ?>
-                                        </h4>
+                                        <h5 class="m-0" id="pageTitleId">
+                                            <span style="font-weight: normal;"><?= $pageTitle ?></span>
+                                        </h5>
                                     </div>
                                     <div class="col-sm-6">
                                         <?=

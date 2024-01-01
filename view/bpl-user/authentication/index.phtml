@@ -1,0 +1,8 @@
+<div style="float:left; padding-right:16px;">
+    <img src="<?= $this->getUserImage() ?>" width="100px;">
+</div>
+<h3><?= $this->translate('Hello'); ?>, <?= $user->getEmail() ?>!</h3>
+<a href="<?= $this->url('bpl-user/logout') ?>">
+    [<?= $this->translate('Sign Out'); ?>]
+</a>
+<div style="clear:both;"></div>

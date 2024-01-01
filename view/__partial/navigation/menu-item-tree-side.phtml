@@ -18,7 +18,10 @@ foreach ($childPagesCheck as $cPage) {
 <li class="<?= $class ?>">
     <a href="#" class="nav-link <?= $linkClass ?>">
         <?= $icon!== false ? '<i class="nav-icon '. $icon .'"></i>' : '' ?>
-        <p><?= $page->getLabel() ?></p>
+        <p>
+            <?= $page->getLabel() ?>
+            <i class="right fas fa-angle-left"></i>
+        </p>
     </a>
     <ul class="nav nav-treeview">
         <?php

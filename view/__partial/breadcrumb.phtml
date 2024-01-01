@@ -1,0 +1,58 @@
+<?php
+$separator = $this->navigation()->breadcrumbs()->getSeparator();
+if ($separator !== '') {
+    echo '<style>'
+    . '.breadcrumb-item + .breadcrumb-item::before { '
+    . 'padding-left: 0rem;'
+    . 'padding-right: 0.5rem;'
+    . 'content: "' . $separator . '";'
+    . '}'
+    . '</style>';
+}
+?>
+
+<ol class="breadcrumb <?= $this->getCssClass("breadcrumb") ?>" id="mybreadcrumb" >
+    <?php
+    // iterate through the pages
+    $test1 = 0;
+    $test2 = 0;
+    foreach ($this->pages as $key => $page):
+        ?>
+        <li class="breadcrumb-item">
+            <?php
+            // if this isn't the last page, add a link and the separator
+            if ($key < count($this->pages) - 1):
+                $test1 = 1;
+                ?>
+                <a href="<?= $page->getHref(); ?>">
+                    <?php if ($page->get('showIconInBreadcrumb') == true): ?>
+                        <span class="<?= $page->get("icon") ?>"></span>
+                    <?php endif; ?>
+                    <?= $page->getLabel(); ?>
+                </a>
+                <?php
+            // otherwise, just output the name
+            else:
+                $test2 = 1;
+                $separator = '';
+                ?>
+                <?php if ($page->get('showIconInBreadcrumb') == true): ?>
+                    <span class="<?= $page->get("icon") ?>"></span>
+                <?php endif; ?>
+                <?= $page->getLabel(); ?>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+</ol>
+
+<?php
+// Hide breadcrumb bar if there are no items to be displayed
+if (($test1 + $test2) == 0) {
+    ?>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#mybreadcrumb").addClass("hidden");
+        });
+    </script>
+    <?php
+}

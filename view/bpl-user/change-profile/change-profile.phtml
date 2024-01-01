@@ -1,0 +1,18 @@
+<?php
+$form = $this->changeProfileForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('bpl-user/change-profile'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('autocomplete', 'off');
+?>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><?= $this->translate('Change Profile') ?></h3>
+    </div>
+    <div class="card-body">
+        <?php if ($this->profileChanged == true) : ?>
+            <p><?= $this->translate("Your profile has been changed succesfully") ?></p>
+        <?php endif; ?>
+        <?= $this->partial('bpl-user/generic-form', ['form' => $form]) ?>
+    </div>
+</div>

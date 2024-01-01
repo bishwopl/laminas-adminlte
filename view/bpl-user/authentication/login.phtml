@@ -1,0 +1,40 @@
+<?php
+/* @var $this \Laminas\View\Renderer\PhpRenderer  */
+
+$form = $this->loginForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('bpl-user/login'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('autocomplete', 'off');
+?>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-outline card-info">
+            <div class="card-header text-center">
+                <h3>
+                    <a href="#" class="h6">
+                        <strong>Login to continue</strong>
+                    </a>
+                </h3>
+
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+
+                </div>
+                <?= $this->partial('bpl-user/generic-form', ['form' => $form]) ?>
+
+                <p class="mb-0"><a href="<?php echo $this->url('bpl-user/forgot-password') ?>"><?php echo $this->translate("Forgot your password?"); ?></a></p>
+                <p></p>
+                <p class="mb-0">
+                    <?php if ($this->enableRegistration) : ?>
+                        <?= $this->translate('Not registered?') ?> <a href="<?= $this->url('bpl-user/register') . ($this->redirect ? '?redirect=' . $this->escapeUrl($this->redirect) : '') ?>"><?= $this->translate('Sign up!') ?></a>
+                    <?php endif; ?>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+

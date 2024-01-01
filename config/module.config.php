@@ -17,6 +17,9 @@ use LaminasAdminLTE\ThemeOptions\ColorOption;
 use LaminasAdminLTE\ThemeOptions\SidebarSkinOption;
 use LaminasAdminLTE\Service\CustomNavigation;
 use LaminasAdminLTE\Service\CustomNavigationFactory;
+use LaminasAdminLTE\Service\EmptyNavigation;
+use LaminasAdminLTE\Service\EmptyNavigationFactory;
+use LaminasAdminLTE\Factory\DefaultNavigationFactory;
 
 $aLTEDirAssets = __DIR__ . '/../../../../vendor/almasaeed2010/adminlte';
 
@@ -29,10 +32,13 @@ return [
     'service_manager' => [
         'factories' => [
             ModuleOptions::class => ModuleOptionsFactory::class,
-            CustomNavigation::class => CustomNavigationFactory::class
+            CustomNavigation::class => CustomNavigationFactory::class,
+            EmptyNavigation::class => EmptyNavigationFactory::class,
+            \Laminas\Navigation\Navigation::class => DefaultNavigationFactory::class,
         ],
         'aliases' => [
             'laminas-adminlte-examples-navigation' => CustomNavigation::class,
+            'empty-navigation' => EmptyNavigation::class,
         ],
     ],
     'laminas_adminlte' => [
@@ -40,36 +46,30 @@ return [
          * Set true to display control sidebar
          */
         'showControl' => true,
-        
         /*
          * Set true to display search field in navigation bar
          */
         'showSearch' => true,
-        
         /*
          * Set true to display breadcrumb
          */
         'showBreadcrumb' => true,
-        
         /*
          * This module uses laminas/laminas-navigation to generate top and sidebar menu.
          * 'topNavigationKey' is used select navigation for top bar
          * 'laminas-adminlte-examples-navigation' is for example navigation
          */
         'topNavigationKey' => 'laminas-adminlte-examples-navigation',
-        
         /*
          * This module uses laminas/laminas-navigation to generate top menu and sidebar menu.
          * 'sidebarNavigationKey' is used select navigation for side bar menu
          */
         'sidebarNavigationKey' => 'laminas-adminlte-examples-navigation',
-        
         /*
          * This module uses laminas/laminas-navigation to generate breadcrumbs.
          * 'navigationKeyForBreadcrumb' is used select navigation for breadcrumbs
          */
         'navigationKeyForBreadcrumb' => 'laminas-adminlte-examples-navigation',
-        
         /*
          * List of plugins. To add new plugins use the following format
          * 'pluginname' => [
@@ -92,7 +92,6 @@ return [
          * To change default scripts and styles used the format described above
          */
         'plugins' => require __DIR__ . '/plugins.config.php',
-        
         /*
          * Generates <meta {type} = {key} content = {content}> in DOM. Example
          * [
@@ -118,7 +117,6 @@ return [
                 'content' => 'IE=edge'
             ],
         ],
-        
         /*
          * These assets are required for the theme
          */
@@ -144,12 +142,12 @@ return [
                     'type' => 'js',
                     'isFromCDN' => false,
                     'isInlineScript' => false,
-                    'location' => 'plugins/bootstrap/js/bootstrap.min.js'
+                    'location' => 'plugins/bootstrap/js/bootstrap.bundle.min.js'
                 ],
                 [
                     'type' => 'js',
                     'isFromCDN' => false,
-                    'isInlineScript' => false,
+                    'isInlineScript' => true,
                     'location' => 'dist/js/adminlte.min.js'
                 ],
                 [
@@ -160,7 +158,6 @@ return [
                 ],
             ],
         ],
-        
         /*
          * If your custom layout requires a specific plugin then you can either
          * enable the plugin after changing layout or
@@ -175,7 +172,6 @@ return [
                 PluginOption::overlayScrollbars,
             ],
         ],
-        
         /*
           |--------------------------------------------------------------------------
           | Title
@@ -185,7 +181,6 @@ return [
         'default_title' => 'AdminLTE 3',
         'title_prefix' => '',
         'title_postfix' => ' - Laminas AdminLTE Integration',
-        
         /*
           |--------------------------------------------------------------------------
           | Favicon
@@ -195,84 +190,84 @@ return [
         'use_favicon' => true,
         'favicons' => [
             /*
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-57x57.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '57x57'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-60x60.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '60x60'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-72x72.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '72x72'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-76x76.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '76x76'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-114x114.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '114x114'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-120x120.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '120x120'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-144x144.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '144x144'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-152x152.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '152x152'
-            ],
-            [
-                'type' => '',
-                'location' => 'favicons/apple-icon-180x180.png',
-                'rel' => 'apple-touch-icon',
-                'sizes' => '180x180'
-            ],
-            [
-                'type' => 'image/png',
-                'location' => 'favicons/favicon-16x16.png',
-                'rel' => 'icon',
-                'sizes' => '16x16'
-            ],
-            [
-                'type' => 'image/png',
-                'location' => 'favicons/favicon-32x32.png',
-                'rel' => 'icon',
-                'sizes' => '32x32'
-            ],
-            [
-                'type' => 'image/png',
-                'location' => 'favicons/favicon-96x96.png',
-                'rel' => 'icon',
-                'sizes' => '96x96'
-            ],
-            [
-                'type' => 'image/png',
-                'location' => 'favicons/favicon-192x192.png',
-                'rel' => 'icon',
-                'sizes' => '192x192'
-            ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-57x57.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '57x57'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-60x60.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '60x60'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-72x72.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '72x72'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-76x76.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '76x76'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-114x114.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '114x114'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-120x120.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '120x120'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-144x144.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '144x144'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-152x152.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '152x152'
+              ],
+              [
+              'type' => '',
+              'location' => 'favicons/apple-icon-180x180.png',
+              'rel' => 'apple-touch-icon',
+              'sizes' => '180x180'
+              ],
+              [
+              'type' => 'image/png',
+              'location' => 'favicons/favicon-16x16.png',
+              'rel' => 'icon',
+              'sizes' => '16x16'
+              ],
+              [
+              'type' => 'image/png',
+              'location' => 'favicons/favicon-32x32.png',
+              'rel' => 'icon',
+              'sizes' => '32x32'
+              ],
+              [
+              'type' => 'image/png',
+              'location' => 'favicons/favicon-96x96.png',
+              'rel' => 'icon',
+              'sizes' => '96x96'
+              ],
+              [
+              'type' => 'image/png',
+              'location' => 'favicons/favicon-192x192.png',
+              'rel' => 'icon',
+              'sizes' => '192x192'
+              ],
              */
             [
                 'type' => 'image/vnd.microsoft.icon',
@@ -280,9 +275,7 @@ return [
                 'rel' => 'shortcut icon',
                 'sizes' => '48x48'
             ],
-             
         ],
-        
         /*
           |--------------------------------------------------------------------------
           | Logo
@@ -293,7 +286,6 @@ return [
         'logo_img' => 'dist/img/AdminLTELogo.png',
         'logo_img_class' => 'brand-image img-circle elevation-3',
         'logo_img_alt' => 'Laminas-AdminLTE3',
-        
         /*
           |--------------------------------------------------------------------------
           | User Menu
@@ -304,7 +296,6 @@ return [
         'usermenu_header_class' => ColorOption::bgLightblue,
         'usermenu_profile_route' => NULL,
         'usermenu_logout_route' => NULL,
-        
         /*
           |--------------------------------------------------------------------------
           | Layout
@@ -318,7 +309,6 @@ return [
         'layout_fixed_sidebar' => null,
         'layout_fixed_navbar' => null,
         'layout_fixed_footer' => null,
-        
         /*
           |--------------------------------------------------------------------------
           | Authentication Views Classes
@@ -331,7 +321,6 @@ return [
         'classes_auth_footer' => '',
         'classes_auth_icon' => '',
         'classes_auth_btn' => 'btn-flat btn-primary',
-        
         /*
           |--------------------------------------------------------------------------
           | Admin Panel Classes
@@ -348,7 +337,6 @@ return [
         'classes_topnav' => 'navbar-white navbar-light navbar-expand-md',
         'classes_topnav_container' => 'container',
         'classes_breadcrumb' => 'float-sm-right text-sm',
-        
         /*
           |--------------------------------------------------------------------------
           | Sidebar
@@ -357,7 +345,6 @@ return [
          */
         'sidebar_mini' => false,
         'sidebar_collapse' => true,
-        
         /*
           |--------------------------------------------------------------------------
           | Control Sidebar (Right Sidebar)
@@ -367,7 +354,6 @@ return [
         'right_sidebar' => true,
         'right_sidebar_icon' => 'fas fa-cogs',
         'right_sidebar_theme' => 'dark',
-        
         /*
           |--------------------------------------------------------------------------
           | URLs
@@ -382,23 +368,22 @@ return [
         'password_reset_url' => 'password/reset',
         'password_email_url' => 'password/email',
         'profile_url' => false,
-        
         /*
           |--------------------------------------------------------------------------
           | Role wise layouts
           |--------------------------------------------------------------------------
           | These settings can be used to apply different layouts for user roles
           | 'role_service'   -> service key for role management service
-          | 'method_to_call' -> it is used to get role name ofcurrently logged user 
+          | 'method_to_call' -> it is used to get role name ofcurrently logged user
          */
         'role_wise_layouts' => [
             'enabled' => false,
             'role_service' => '',
             'method_to_call' => '',
             'layouts' => [
-                //'admin' => LayoutOption::topNavWithSidebar,
-                //'user' => LayoutOption::topNavigation,
-                //'default' => LayoutOption::topNavigation,
+            //'admin' => LayoutOption::topNavWithSidebar,
+            //'user' => LayoutOption::topNavigation,
+            //'default' => LayoutOption::topNavigation,
             ],
         ],
     ],
@@ -464,6 +449,165 @@ return [
     ],
     'navigation' => [
         'default' => [
+            "bpl-admin-header" => [
+                "label" => "Account",
+                "header" => true,
+                "controller" => \BplUser\Controller\AuthenticationController::class,
+                "action" => "index",
+                "order" => 100,
+                "uri" => "#"
+            ],
+            "bpl-admin" => [
+                "label" => "Account Administration",
+                "showIcon" => true,
+                "showIconInBreadcrumb" => true,
+                "icon" => "fas fa-users",
+                "controller" => \BplAdmin\Controller\AdminController::class,
+                "action" => "index",
+                "route" => "bpl-admin",
+                "order" => 101,
+                "pages" => [
+                    [
+                        "label" => "Users",
+                        "route" => "bpl-admin/user-management",
+                        "showIcon" => true,
+                        "showIconInBreadcrumb" => false,
+                        "controller" => \BplAdmin\Controller\UserManagement\ListController::class,
+                        "action" => "index",
+                        "icon" => "fa fa-circle nav-icon",
+                        "pages" => [
+                            [
+                                "label" => "Add User",
+                                "route" => "bpl-admin/user-management/register",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\UserManagement\RegisterController::class,
+                                "action" => "index",
+                            ],
+                            [
+                                "label" => "Assign Roles",
+                                "route" => "bpl-admin/user-management/assign-roles",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\UserManagement\AssignRoleController::class,
+                                "action" => "index",
+                            ],
+                            [
+                                "label" => "Edit Profile",
+                                "route" => "bpl-admin/user-management/change-profile",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\UserManagement\ProfileController::class,
+                                "action" => "index",
+                            ],
+                            [
+                                "label" => "Change Password",
+                                "route" => "bpl-admin/user-management/change-password",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\UserManagement\CredentialController::class,
+                                "action" => "index",
+                            ],
+                            [
+                                "label" => "Delete User",
+                                "route" => "bpl-admin/user-management/delete",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\UserManagement\DeleteController::class,
+                                "action" => "index",
+                            ],
+                        ],
+                    ],
+                    [
+                        "label" => "Roles",
+                        "showIcon" => true,
+                        "route" => "bpl-admin/role-management",
+                        "showIconInBreadcrumb" => false,
+                        "controller" => \BplAdmin\Controller\RoleManagementController::class,
+                        "action" => "index",
+                        "icon" => "fa fa-circle nav-icon",
+                        "pages" => [
+                            [
+                                "label" => "Add Role",
+                                "route" => "bpl-admin/role-management",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\RoleManagementController::class,
+                                "action" => "add",
+                            ],
+                            [
+                                "label" => "Edit Role",
+                                "route" => "bpl-admin/role-management",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\RoleManagementController::class,
+                                "action" => "edit",
+                            ],
+                            [
+                                "label" => "Delete Role",
+                                "route" => "bpl-admin/role-management",
+                                "showIcon" => true,
+                                "showIconInBreadcrumb" => false,
+                                "controller" => \BplAdmin\Controller\RoleManagementController::class,
+                                "action" => "delete",
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            "bpl-user" => [
+                "label" => "Your Account",
+                "showIcon" => true,
+                "showIconInBreadcrumb" => true,
+                "icon" => "fas fa-user",
+                "controller" => \BplUser\Controller\AuthenticationController::class,
+                "action" => "index",
+                "route" => "bpl-user",
+                "order" => 103,
+                "pages" => [
+                    [
+                        "label" => "Change Passowrd",
+                        "route" => "bpl-user/change-password",
+                        "showIcon" => true,
+                        "showIconInBreadcrumb" => false,
+                        "controller" => \BplUser\Controller\ChangePasswordController::class,
+                        "action" => "change-password",
+                        "icon" => "fa fa-circle nav-icon",
+                    ],
+                    /*
+                      [
+                      "label" => "Misc User Information",
+                      "showIcon" => true,
+                      "route" => "bpl-user/user-atoms",
+                      "showIconInBreadcrumb" => false,
+                      "controller" => \BplUser\Controller\UserAtomController::class,
+                      "action" => "index",
+                      "icon" => "fa fa-circle nav-icon",
+                      ],
+                     * 
+                     */
+                    [
+                        "label" => "Change Profile",
+                        "showIcon" => true,
+                        "route" => "bpl-user/change-profile",
+                        "showIconInBreadcrumb" => false,
+                        "controller" => \BplUser\Controller\ChangeProfileController::class,
+                        "action" => "change-profile",
+                        "icon" => "fa fa-circle nav-icon",
+                    ],
+                    [
+                        "label" => "Logout",
+                        "showIcon" => true,
+                        "showIconInBreadcrumb" => false,
+                        "route" => "bpl-user/logout",
+                        "controller" => \BplUser\Controller\AuthenticationController::class,
+                        "action" => "logout",
+                        "icon" => "fa fa-circle nav-icon",
+                    ],
+                ],
+            ],
+        ],
+        'empty-navigation' => [
         ],
         'laminas-adminlte-examples-navigation' => [
             [
@@ -474,11 +618,15 @@ return [
                 'icon' => 'fas fa-home',
                 'labelRight' => 5,
                 'labelColor' => 'primary',
+                "controller" => ExamplesController::class,
+                "action" => "index",
             ],
             [
                 'label' => '<strong>LAYOUT OPTIONS</strong>',
                 'uri' => '#',
                 'header' => true,
+                "controller" => ExamplesController::class,
+                "action" => "index",
             ],
             [
                 'label' => 'Layout Options',
@@ -486,6 +634,8 @@ return [
                 'showIcon' => true,
                 'showIconInBreadcrumb' => true,
                 'icon' => 'fas fa-copy',
+                "controller" => ExamplesController::class,
+                "action" => "index",
                 'pages' => [
                     [
                         'label' => 'Sidebar',
@@ -498,6 +648,8 @@ return [
                         ],
                         'labelRight' => 4,
                         'labelColor' => 'danger',
+                        "controller" => ExamplesController::class,
+                        "action" => "index",
                     ],
                     [
                         'label' => 'Top Navigation',
@@ -507,7 +659,9 @@ return [
                         'icon' => 'far fa-circle nav-icon',
                         'params' => [
                             'layout_type' => str_replace('layout/', '', LayoutOption::topNavigation)
-                        ]
+                        ],
+                        "controller" => ExamplesController::class,
+                        "action" => "index",
                     ],
                     [
                         'label' => 'Top Nav+Sidebar',
@@ -517,7 +671,9 @@ return [
                         'icon' => 'far fa-circle nav-icon',
                         'params' => [
                             'layout_type' => str_replace('layout/', '', LayoutOption::topNavWithSidebar)
-                        ]
+                        ],
+                        "controller" => ExamplesController::class,
+                        "action" => "index",
                     ],
                     [
                         'label' => 'Boxed',
@@ -527,7 +683,9 @@ return [
                         'icon' => 'far fa-circle nav-icon',
                         'params' => [
                             'layout_type' => str_replace('layout/', '', LayoutOption::boxed)
-                        ]
+                        ],
+                        "controller" => ExamplesController::class,
+                        "action" => "index",
                     ],
                 ],
             ],

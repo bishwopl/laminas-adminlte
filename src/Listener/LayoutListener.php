@@ -42,7 +42,7 @@ class LayoutListener extends AbstractListenerAggregate {
         $this->roleService = $roleService;
     }
 
-    public function attach(EventManagerInterface $events, $priority = 99999) {
+    public function attach(EventManagerInterface $events, $priority = 0) {
         $this->listeners[] = $events->attach(
                 MvcEvent::EVENT_RENDER,
                 [$this, 'setLayout'],
@@ -70,7 +70,7 @@ class LayoutListener extends AbstractListenerAggregate {
         $layout = LayoutOption::default;
         
         /*
-         * If layout is set by controller ar a specific module
+         * If layout is set by controller or a specific module
          * then read the 'lockLayout' option and do not change 
          * layout if 'lockLayout' is true.
          */
@@ -87,7 +87,7 @@ class LayoutListener extends AbstractListenerAggregate {
         }
         
         /*
-         * If role wise layouts enabled 
+         * If role wise layouts is enabled 
          *  - get roles from service
          *  - user can have multiple roles
          *  - but first layout in configuration is checked first

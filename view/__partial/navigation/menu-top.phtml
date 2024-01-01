@@ -1,8 +1,8 @@
 <?php
+/* @var $container Laminas\Navigation\Navigation */
 
 use LaminasAdminLTE\ThemeOptions\PartialOption;
 
-/* @var $container Laminas\Navigation\Navigation */
 $container = $this->container;
 
 $maxDepth = $this->navigation($container)->menu()->getMaxDepth();
@@ -25,7 +25,7 @@ $maxDepth = $this->navigation($container)->menu()->getMaxDepth();
             echo $this->partial(PartialOption::menuItem, [
                 'page' => $page,
                 'class' => 'nav-link'
-                ]);
+            ]);
         }
     }
     ?>

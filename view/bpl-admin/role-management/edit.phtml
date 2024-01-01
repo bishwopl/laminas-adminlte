@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Edit Role</h3>
+    </div>
+    <div class="card-body">
+        <p>
+            <a class="btn btn-success btn-sm" href="<?= $this->url('bpl-admin/role-management') ?>">
+                Go to Role Management
+            </a>
+        </p>
+
+        <?= $this->partial('bpl-admin/form', ['form' => $this->form]) ?>
+        <?= $this->edited == true ? 'Role edited successfully !' : '' ?>
+    </div>
+</div>

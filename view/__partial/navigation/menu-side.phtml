@@ -6,7 +6,7 @@ $container = $this->container;
 
 $maxDepth = $this->navigation($container)->menu()->getMaxDepth();
 ?>
-<ul class="<?= $this->navigation($container)->menu()->getUlClass(); ?>"  data-widget="treeview" role="menu" data-accordion="false">
+<ul class="<?= $this->navigation($container)->menu()->getUlClass() ?>"  data-widget="treeview" role="menu" data-accordion="true">
     <?php
     foreach ($container as $page) {
         if (!$this->navigation()->accept($page)) {

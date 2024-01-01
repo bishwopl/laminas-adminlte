@@ -84,7 +84,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/chart.js/Chart.bundle.min.js',
             ],
             [
@@ -99,20 +99,9 @@ return [
         'files' => [
             [
                 'type' => 'js',
-                'isFromCDN' => true,
-                'isInlineScript' => true,
-                'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
-            ],
-            [
-                'type' => 'js',
-                'isFromCDN' => true,
-                'isInlineScript' => true,
-                'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
-            ],
-            [
-                'type' => 'css',
-                'isFromCDN' => true,
-                'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                'isFromCDN' => false,
+                'isInlineScript' => false,
+                'location' => 'plugins/datatables/jquery.dataTables.min.js',
             ],
         ],
     ],
@@ -138,7 +127,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-bs4/js/dataTables.bootstrap4.min.js',
             ],
             [
@@ -154,31 +143,31 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-buttons/js/buttons.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-buttons/js/buttons.colVis.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-buttons/js/buttons.html5.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-buttons/js/buttons.print.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-buttons/js/dataTables.buttons.min.js',
             ],
             [
@@ -282,13 +271,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-responsive/js/dataTables.responsive.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-responsive/js/responsive.bootstrap4.min.js',
             ],
             [
@@ -370,13 +359,13 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-select/js/select.bootstrap4.min.js',
             ],
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/datatables-select/js/dataTables.select.min.js',
             ],
             [
@@ -818,7 +807,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/select2/js/select2.full.min.js',
             ],
             [
@@ -871,7 +860,7 @@ return [
             [
                 'type' => 'js',
                 'isFromCDN' => false,
-                'isInlineScript' => true,
+                'isInlineScript' => false,
                 'location' => 'plugins/sweetalert2/sweetalert2.all.min.js',
             ],
             [

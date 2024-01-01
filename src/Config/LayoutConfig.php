@@ -26,7 +26,7 @@ class LayoutConfig {
     ];
     
     public const darkInfoSkin = [
-        'classes_body' => AccentColorOption::accentInfo,
+        'classes_body' => AccentColorOption::accentInfo. " text-sm",
         'classes_brand' => ColorOption::navbarInfo,
         'classes_brand_text' => 'font-weight-light text-white',
         'classes_sidebar' => SidebarSkinOption::sidebarDarkInfo.' elevation-4',
@@ -42,7 +42,7 @@ class LayoutConfig {
     ];
     
     public const darkDangerSkin = [
-        'classes_body' => AccentColorOption::accentDanger,
+        'classes_body' => AccentColorOption::accentDanger. " text-sm",
         'classes_brand' => ColorOption::navbarDanger,
         'classes_brand_text' => 'font-weight-light text-white',
         'classes_sidebar' => SidebarSkinOption::sidebarDarkDanger.' elevation-4',

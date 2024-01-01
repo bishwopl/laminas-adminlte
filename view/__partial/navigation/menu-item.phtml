@@ -10,7 +10,7 @@ if ($page->header !== true) {
         <a href="<?= $page->getHref() ?>" class="<?= $this->class ?> <?= $page->isActive() ? 'active' : '' ?>">
             <?= $icon !== false ? '<i class="nav-icon ' . $icon . '"></i>' : '' ?>
             <?= $page->getLabel() ?>
-            <?php if (trim($page->labelRight) !== "") { ?>
+            <?php if (!is_null($page->labelRight) && trim($page->labelRight) !== "") { ?>
                 <span class="badge badge-<?= $page->labelColor ?> right">
                     <?= $page->labelRight ?>
                 </span>

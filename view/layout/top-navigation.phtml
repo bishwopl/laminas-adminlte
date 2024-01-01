@@ -29,13 +29,13 @@ $title = $this->getConfig('title_prefix') . $pageTitle . $this->getConfig('title
             <div class="content-wrapper <?= $this->getCssClass("content_wrapper") ?>">
                 <div class="content <?= $this->getCssClass("content") ?>">
                     <div class="content-header <?= $this->getCssClass("content_header") ?>">
-                        <?php if ($this->getConfig('showBreadcrumb')): ?>
+                        <?php if ($this->getConfig('showBreadcrumb') || true): ?>
                             <div class="container">
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <h4 class="m-0" id="pageTitleId">
-                                            <?= $this->pageTitle ?>
-                                        </h4>
+                                        <h5 class="m-0" id="pageTitleId">
+                                            <span style="font-weight: normal;"><?= $pageTitle ?></span>
+                                        </h5>
                                     </div>
                                     <div class="col-sm-6">
                                         <?=

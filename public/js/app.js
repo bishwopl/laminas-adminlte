@@ -719,19 +719,18 @@
         $(this).addClass('active');
     });
 
-    if (Boolean(localStorage.getItem("sidebar-toggle-collapsed"))) {
-        $("body").removeClass('sidebar-collapse');
-    } else {
+    if (localStorage.getItem("sidebar-toggle-collapsed")==="1") {
         $("body").addClass('sidebar-collapse');
+    } else {
+        $("body").removeClass('sidebar-collapse');
     }
 
-    $('.sidebar-toggle').click(function () {
-
-        if (Boolean(localStorage.getItem("sidebar-toggle-collapsed"))) {
-            localStorage.setItem("sidebar-toggle-collapsed", "");
-        } else {
+    setInterval(function () {
+        if ($("body").hasClass('sidebar-collapse')) {
             localStorage.setItem("sidebar-toggle-collapsed", "1");
+        } else {
+            localStorage.setItem("sidebar-toggle-collapsed", "0");
         }
-    });
+    }, 2000); 
 
 })(jQuery);

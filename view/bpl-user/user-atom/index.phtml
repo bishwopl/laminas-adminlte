@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><?= $this->translate('Change Information') ?></h3>
+    </div>
+    <div class="card-body">
+        <?php if ($this->infoChanged == true) : ?>
+            <p><?= $this->translate("Your information has been changed succesfully") ?></p>
+        <?php endif; ?>
+        <?= $this->partial('bpl-user/generic-form', ['form' => $this->form]) ?>
+    </div>
+</div>
+
